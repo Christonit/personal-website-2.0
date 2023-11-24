@@ -1,0 +1,276 @@
+
+a{
+  @include link;
+  margin-bottom: 0;
+  &:hover{
+    color: $gold;
+    background: none;
+    cursor: none;
+  }
+}
+
+
+.button{
+  background: rgba(255,255,255,0.0);
+  border-radius: 0;
+  border: none;
+  width: 100%;
+  //max-width: 172px;
+  // max-width: 212px;
+  border-bottom: 3px solid $white;
+
+  padding: 0.875rem 1.1rem;
+  font-weight: 700;
+  font-size: 1.125rem;
+  @include breakpoint(sm){
+    font-size: 1.25rem;
+  }
+  color: $white;
+
+  &.is-link{
+    background-color: $white;
+    border: 1px solid transparent;
+    max-width: 224px;
+    align-items: end;
+    color: $black;
+    transition: 300ms all ease-in;
+    line-height: 0.6;
+    @include breakpoint(sm){
+      line-height: 0.9;
+    }
+    &:hover{
+      @include gradient;
+    }
+
+    i{
+      top: 6px;
+      position: relative;
+      @include breakpoint(sm){
+        top: 4px;
+      }
+    }
+
+    &:first-child{
+      i{
+        margin-right:8px;
+
+      }
+    }
+
+
+    &:last-child{
+      i{
+        margin-left:8px;
+
+      }
+    }
+
+
+  }
+
+}
+
+
+.is-disabled{
+  border: 1px solid $white-fade !important;
+  color: $white-fade !important;
+  background: none!important;
+  &:hover{
+    color: $white!important;
+    background: inherit;
+    i{
+      color: $white!important;
+    }
+
+  }
+}
+.is-cta{
+  @include gradient;
+  border:1px solid transparent;
+  &:hover{
+    @include gradient;
+    color: $gold;
+    border:1px solid transparent;
+
+  }
+}
+
+
+.is-outlined{
+  max-width: 224px;
+  &:hover{
+    @include gradient;
+    color: $white;
+    border:1px solid transparent;
+  }
+
+}
+
+a.navbar-item, .navbar-link {
+  cursor: none;
+  // cursor: pointer;
+  @include breakpoint(sm){
+    margin: 0;
+
+  }
+}
+
+
+
+
+.button.is-text{
+  color: $white;
+  @include breakpoint(sm){
+    max-width: 172px;
+
+  }
+
+  &:hover{
+    color: $gold;
+    background: none;
+  }
+}
+
+
+.button.is-white{
+  color: $white;
+  display: inline-flex;
+  min-width: unset;
+  width: unset;
+  background: none;
+  &:hover{
+    color: $gold;
+    background: none;
+  }
+}
+
+
+
+.button.is-small {
+  border-radius: 0;
+  font-size: 1rem;
+  max-width: inherit;
+  width: auto;
+  padding: 0 0.7rem;
+  margin: 0;
+
+  i{
+    font-size: 1.25rem;
+    line-height: 1.8;
+  }
+}
+
+.is-hollow{
+  @include border-faded;
+}
+
+
+
+.scroll-more-container {
+//@include border-faded;
+  position: relative;
+
+  max-width: 188px;
+
+  width: auto;
+
+  height: 44px;
+
+  padding: 8px 16px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  margin: 0 auto;
+
+  top: 5rem;
+
+  @include breakpoint(sm){
+    top: 4rem;
+  }
+}
+
+.arrow-container{
+  margin: 0 16px;
+  position: relative;
+  top: -17px;
+}
+
+.chevron {
+  position: absolute;
+  width: 16px;
+  height: 2px;
+  opacity: 0;
+  transform: scale3d(0.5, 0.5, 0.5);
+  animation: move 3s ease-out infinite;
+}
+
+.chevron:first-child {
+  animation: move 3s ease-out 1s infinite;
+}
+
+.chevron:nth-child(2) {
+  animation: move 3s ease-out 2s infinite;
+}
+
+.chevron:before,
+.chevron:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  height: 90%;
+  width: 51%;
+  background: $white;
+}
+
+.chevron:before {
+  left: 0;
+  transform: skew(0deg, 30deg);
+}
+
+.chevron:after {
+  right: 0;
+  width: 50%;
+  transform: skew(0deg, -30deg);
+}
+
+@keyframes move {
+  25% {
+    opacity: 0.5;
+
+  }
+  33% {
+    opacity: 1;
+    transform: translateY(10px);
+  }
+  67% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px) scale3d(0.5, 0.5, 0.5);
+  }
+}
+
+.text {
+  display: block;
+  @include main_font;
+  text-align:center;
+  position:relative;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color:$white;
+  //animation: pulse 2s linear alternate infinite;
+}
+
+/*@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}*/

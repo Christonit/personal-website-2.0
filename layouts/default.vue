@@ -104,6 +104,28 @@ onMounted(() => {
           });
         });
       });
+
+    document.addEventListener("mousemove", function (e) {
+      document.querySelector("#cursor").style.left = e.pageX + 2 + "px";
+      document.querySelector("#cursor").style.top = e.pageY + 8 + "px";
+
+      document.querySelector("#cursor--shadow").style.left = e.pageX + 2 + "px";
+      document.querySelector("#cursor--shadow").style.top = e.pageY - 8 + "px";
+    });
+
+    //Currently have issue of event bubbling and multiple firings.
+    // One posible solution is generate a new canvas on click on te same event.page position, chain it with a promise and then delete it when animation finished.
+    document.addEventListener("click", function (e) {
+      document.querySelectorAll(".cursor--halo").forEach((element) => {
+        element.style.cssText =
+          "width: 0; height: 0; left: " +
+          (e.pageX - 24) +
+          "px; top: " +
+          (e.pageY - 4) +
+          "px;";
+      });
+      cursorAnimations();
+    });
   }
 });
 </script>

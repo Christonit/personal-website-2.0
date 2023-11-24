@@ -1,38 +1,21 @@
-import anime from 'animejs'
+import anime from 'animejs';
+
 let x;
-const topAnchor = window.document.scrollingElement || window.document.body || window.document.documentElement;
+const topAnchor = document.scrollingElement || document.body || document.documentElement;
 const cursorShadow = document.querySelector('#cursor--shadow');
 const cursor = document.querySelector('#cursor');
 const red = '#F32424';
-const scrollTop = $('#scrollToTop');
+const scrollTop = document.getElementById('scrollToTop');
 
-$(document).bind('mousemove', function (e) {
-    $('#cursor').css({
-        left: e.pageX,
-        top: e.pageY + 100
-    });
-
-    // setTimeout( ()=>{
-    //
-    //  $('#cursor--shadow').css({
-    //      left:  e.pageX-12,
-    //      top:   e.pageY+2
-    //   });
-    //
-    // },100);
-
-
+document.addEventListener('mousemove', function (e) {
+    cursor.style.left = e.pageX + 'px';
+    cursor.style.top = e.pageY + 100 + 'px';
 });
 
 let cursorAnimations = () => {
-
-
-    let cursorAnimation = anime.timeline();
     let cursorHalo = document.querySelector('.cursor--halo');
 
-
-
-    cursorAnimation.add({
+    anime.timeline().add({
         targets: cursorHalo,
         opacity: 1,
         borderColor: 'rgba(255,255,255,1)',
@@ -46,68 +29,60 @@ let cursorAnimations = () => {
         borderColor: 'rgba(255,255,255,0)',
         duration: 300,
         easing: 'linear'
-
     }).add({
         targets: cursorHalo,
         height: 0,
         width: 0,
-        duration: 100,
+        duration: 100
     });
-
 };
 
-
-
-//Currently have issue of event bubbling and multiple firings.
-// One posible solution is generate a new canvas on click on te same event.page position, chain it with a promise and then delete it when animation finished.
-$(document).click((e) => {
-    $('.cursor--halo').css({
-        'width': 0,
-        'height': 0,
-        'left': (e.pageX - 24),
-        'top': (e.pageY - 4)
-    });
+document.addEventListener('click', (e) => {
+    let cursorHalo = document.querySelector('.cursor--halo');
+    cursorHalo.style.width = '0';
+    cursorHalo.style.height = '0';
+    cursorHalo.style.left = e.pageX - 24 + 'px';
+    cursorHalo.style.top = e.pageY - 4 + 'px';
     cursorAnimations();
-
 });
 
-$('a, .navbar-item, .portfolio-el-img, .button, button,  #scrollToTop, figure, img').on('mouseover', function (e) {
+const elements = document.querySelectorAll('a, .navbar-item, .portfolio-el-img, .button, button, #scrollToTop, figure, img');
 
-    anime({
-        targets: cursorShadow,
-        height: 56,
-        opacity: 1,
-        width: 56,
-        duration: 1000
+elements.forEach(element => {
+    element.addEventListener('mouseover', function (e) {
+        anime({
+            targets: cursorShadow,
+            height: 56,
+            opacity: 1,
+            width: 56,
+            duration: 1000
+        });
+
+        anime({
+            targets: cursor,
+            opacity: 0,
+            duration: 1000
+        });
     });
 
-    anime({
-        targets: cursor,
-        opacity: 0,
-        duration: 1000
-    });
+    element.addEventListener('mouseleave', function (e) {
+        anime({
+            targets: cursorShadow,
+            height: 0,
+            width: 0,
+            opacity: 0,
+            duration: 1000
+        });
 
+        anime({
+            targets: cursor,
+            opacity: 1,
+            duration: 1000
+        });
+    });
 });
 
-$('a, .navbar-item, .portfolio-el-img, .button, button, #scrollToTop, figure, img').on('mouseleave', function (e) {
-    anime({
-        targets: cursorShadow,
-        height: 0,
-        width: 0,
-        opacity: 0,
-        duration: 1000
-    });
-
-    anime({
-        targets: cursor,
-        opacity: 1,
-        duration: 1000
-    });
-
-});
-
-
-var bar = new ProgressBar.Circle(scrollToTop, {
+const bar = new ProgressBar.Circle(scrollToTop, {
     strokeWidth: 1,
     easing: 'easeIn',
     duration: 200,
@@ -117,34 +92,23 @@ var bar = new ProgressBar.Circle(scrollToTop, {
     svgStyle: null
 });
 
-
-
-
-
-scrollTop.on('click', () => {
+scrollTop.addEventListener('click', () => {
     anime({
         targets: topAnchor,
-        top: 0,
+        scrollTop: 0,
         duration: 800,
         easing: 'easeInOutQuad'
     });
-
 });
 
-$(document).on('scroll', () => {
-
+document.addEventListener('scroll', () => {
     let scrollPosition = window.pageYOffset / document.body.clientHeight;
+    let scrollCount = parseFloat(scrollPosition.toFixed(2)) + ((document.body.clientHeight < 2500) ? 0.45 : 0.10);
+    (windowSize > sm) ? x = '144px' : x = '64px';
 
-    let scrollCount = parseFloat(scrollPosition.toFixed(2)) + 0.25;
-    let x;
-
-    windowSize > sm ? x = '144px' : x = '64px';
-
-    // console.log(scrollCount + 0.25);
-
-
-    if ((scrollPosition * 100) > 50) {
-        $(this).one('scroll', () => {
+    if ((scrollPosition * 100) > ((windowSize > sm) ? 15 : 25)) {
+        setTimeout(() => {
+            document.removeEventListener('scroll', scrollHandler);
             anime({
                 targets: document.querySelector('#scrollToTop'),
                 bottom: x,
@@ -153,90 +117,23 @@ $(document).on('scroll', () => {
                 duration: 700,
                 easing: 'easeInOutQuad'
             });
-        });
-    } else {
-        $(this).one('scroll', () => {
-            anime({
-                targets: document.querySelector('#scrollToTop'),
-                bottom: '-' + x,
-                delay: 300,
-                opacity: 0,
-                duration: 700,
-                easing: 'easeInOutQuad'
-            });
-        });
-    }
-
-    bar.animate((scrollCount <= 1 ? scrollCount = 0 : scrollCount = 1));
-
-});
-
-scrollTop.on('click', () => {
-    anime({
-        targets: topAnchor,
-        scrollTop: 0,
-        duration: 800,
-        easing: 'easeInOutQuad'
-    });
-
-
-});
-
-$(document).on('scroll', () => {
-
-    let scrollPosition = window.pageYOffset / document.body.clientHeight;
-
-    let scrollCount = parseFloat(scrollPosition.toFixed(2)) + ((document.body.clientHeight < 2500) ? 0.45 : 0.10);
-    (windowSize > sm) ? x = '144px' : x = '64px';
-
-
-    // console.log(scrollCount + 0.25);
-
-    if ((scrollPosition * 100) > ((windowSize > sm) ? 15 : 25)) {
-
-        setTimeout(() => {
-            $(this).one('scroll', () => {
-
-                anime({
-                    targets: document.querySelector('#scrollToTop'),
-                    bottom: x,
-                    delay: 300,
-                    opacity: 1,
-                    duration: 700,
-                    easing: 'easeInOutQuad'
-                });
-            });
-
         }, 200);
-
-
-
     } else if ((scrollPosition * 100) < ((windowSize > sm) ? 10 : 15)) {
-
         setTimeout(() => {
-
-            $(this).one('scroll', () => {
-                anime.timeline({
-                    targets: document.querySelector('#scrollToTop'),
-                    // delay:300,
-                    duration: 500,
-                    easing: 'easeInOutQuad'
-                }).add({
-                    opacity: 0
-                }).add({
-                    opacity: 0,
-                    bottom: '-' + x
-                });
+            document.removeEventListener('scroll', scrollHandler);
+            anime.timeline({
+                targets: document.querySelector('#scrollToTop'),
+                duration: 500,
+                easing: 'easeInOutQuad'
+            }).add({
+                opacity: 0
+            }).add({
+                opacity: 0,
+                bottom: '-' + x
             });
-
-
         }, 200);
-
     }
-
     bar.animate((scrollCount <= 1 ? scrollCount : scrollCount = 1));
-
 });
-
 
 bar.set(30);

@@ -1,9 +1,12 @@
 <template>
+  <Header />
+
   <slot />
 
   <canvas id="cursor"></canvas>
   <canvas id="cursor--shadow"></canvas>
   <span id="cursor--halo"></span>
+  <NuxtFooter />
 </template>
 
 <script setup>

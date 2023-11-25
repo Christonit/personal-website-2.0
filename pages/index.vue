@@ -1,5 +1,4 @@
 <template>
-  <Header />
   <section class="hero is-primary container is-fluid">
     <div class="columns is-multiline">
       <div class="column hero-body is-12 is-middle-aligned">
@@ -25,5 +24,4 @@
     </div>
   </section>
   <Slider />
-  <NuxtFooter />
 </template>

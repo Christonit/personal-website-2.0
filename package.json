@@ -18,6 +18,8 @@
   "dependencies": {
     "@glidejs/glide": "^3.6.0",
     "animejs": "^3.2.1",
+    "lodash": "^4.17.21",
+    "progressbar.js": "^1.1.1",
     "sass": "^1.69.5"
   }
 }

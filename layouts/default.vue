@@ -1,7 +1,12 @@
 <template>
-  <Header />
+  <span ref="anchor" />
+  <Header :ref="header" />
 
   <slot />
+
+  <button id="scrollToTop" ref="scrollToTopFab" @click="scrollToTop">
+    <i class="material-icons"> arrow_upward </i>
+  </button>
 
   <canvas id="cursor"></canvas>
   <canvas id="cursor--shadow"></canvas>
@@ -11,9 +16,100 @@
 
 <script setup>
 import anime from "animejs";
+import ProgressBar from "progressbar.js";
+import debounce from "lodash/debounce";
+
+const header = ref();
+const scrollToTopFab = ref();
+const anchor = ref();
+const sm = 768;
+
+const smoothScrollToTop = (duration) => {
+  const start = window.pageYOffset || document.documentElement.scrollTop;
+  const target = 0;
+  const distance = target - start;
+  const startTime = performance.now();
+
+  function scroll(timestamp) {
+    const currentTime = timestamp - startTime;
+    const scrollY = easeInOutQuad(currentTime, start, distance, duration);
+    window.scrollTo(0, scrollY);
+
+    if (currentTime < duration) {
+      requestAnimationFrame(scroll);
+    }
+  }
+
+  function easeInOutQuad(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return (c / 2) * t * t + b;
+    t--;
+    return (-c / 2) * (t * (t - 2) - 1) + b;
+  }
+
+  requestAnimationFrame(scroll);
+};
+
+const scrollToTop = () => {
+  //TODO: For some reason, anime js wont scroll to top.
+  // anime({
+  //   targets: window,
+  //   scrollTop: 0,
+  //   duration: 800,
+  //   easing: "easeInOutQuad",
+  // });
+
+  smoothScrollToTop(1000);
+};
+
+const scrollHandler = (bar) => {
+  let scrollPosition = window.scrollY;
+
+  let scrollCount =
+    parseFloat(scrollPosition / document.body.clientHeight) + 0.55;
+  scrollCount = scrollCount >= 1 ? 1 : scrollCount;
+
+  let x;
+
+  window.innerWidth > sm ? (x = "144px") : (x = "64px");
+
+  if (scrollPosition > 250) {
+    anime({
+      targets: document.querySelector("#scrollToTop"),
+      bottom: x,
+      delay: 0,
+      opacity: 1,
+      duration: 700,
+      easing: "easeInOutQuad",
+    });
+  } else {
+    anime({
+      targets: document.querySelector("#scrollToTop"),
+      bottom: "-" + x,
+      delay: 0,
+      opacity: 0,
+      duration: 700,
+      easing: "easeInOutQuad",
+    });
+  }
+
+  bar.animate(scrollCount);
+};
+
+const debouncedScrollHandler = debounce(scrollHandler, 500);
 
 onMounted(() => {
   if (process.client) {
+    const bar = new ProgressBar.Circle(scrollToTopFab.value, {
+      strokeWidth: 1,
+      easing: "easeIn",
+      duration: 200,
+      color: "rgba(255,255,255,1)",
+      trailColor: "rgba(255,255,255,0.24)",
+      trailWidth: 1,
+      svgStyle: null,
+    });
+
     const topAnchor =
       document.scrollingElement || document.body || document.documentElement;
     const cursorShadow = document.querySelector("#cursor--shadow");
@@ -24,11 +120,6 @@ onMounted(() => {
     document.addEventListener("mousemove", function (e) {
       cursor.style.left = e.pageX + "px";
       cursor.style.top = e.pageY + 100 + "px";
-      // Use a setTimeout for cursor--shadow
-      // setTimeout(() => {
-      //     cursorShadow.style.left = e.pageX - 12 + 'px';
-      //     cursorShadow.style.top = e.pageY + 2 + 'px';
-      // }, 100);
     });
 
     let cursorAnimations = () => {
@@ -129,6 +220,8 @@ onMounted(() => {
       });
       cursorAnimations();
     });
+
+    window.addEventListener("scroll", () => debouncedScrollHandler(bar));
   }
 });
 </script>

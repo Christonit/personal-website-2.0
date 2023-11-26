@@ -1,5 +1,10 @@
 <template>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav
+    class="navbar"
+    role="navigation"
+    aria-label="main navigation"
+    ref="header"
+  >
     <div class="navbar-brand">
       <NuxtLink id="logo" class="navbar-item" href="/">
         <Logo />
@@ -76,3 +81,7 @@
     </div>
   </nav>
 </template>
+
+<script setup>
+const { ref: header } = defineProps(["ref"]);
+</script>

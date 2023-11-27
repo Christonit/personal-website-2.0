@@ -3,4 +3,5 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/sass/app.scss"],
   ssr: false,
+  modules: ["@vueuse/nuxt"],
 });

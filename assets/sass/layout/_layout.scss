@@ -1,20 +1,18 @@
 @import "header";
 @import "footer";
 
-*{
-  cursor:none!important;
-  // cursor:url('img/cursor.png');
+* {
+  cursor: none !important;
 }
-body{
+body {
   background: $black;
 }
 
-
-.hero{
+.hero {
   height: auto;
   min-height: 100vh;
   padding: 8rem 2rem 0;
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     padding: 0;
     justify-content: center;
     padding: 0 2rem 0;
@@ -23,143 +21,116 @@ body{
   &-body {
     flex-grow: 1;
     flex-shrink: 0;
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       padding: 0 4rem !important;
       //margin-top: -3rem;
       //padding: 3rem 4rem !important
-
     }
   }
-
 }
-
 
 .columns:not(:last-child) {
   margin-bottom: 5rem;
 }
 
-.hero.is-primary{
+.hero.is-primary {
   background: none;
-  @include breakpoint(lg){
+  @include breakpoint(lg) {
     text-align: center;
   }
 }
 
 .container.is-fluid {
-
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     margin-left: 32px;
     margin-right: 32px;
-
   }
 }
 
-
-
-.section.is-large{
+.section.is-large {
   padding: 6rem 2rem 2rem;
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     padding: 12rem 2rem;
   }
 }
 
-.columns{
+.columns {
   margin: 0;
-  @include breakpoint(sm){
-
+  @include breakpoint(sm) {
   }
 }
-.column{
-  padding:1.25rem 0;
-  @include breakpoint(sm){
+.column {
+  padding: 1.25rem 0;
+  @include breakpoint(sm) {
     padding: 1.25rem;
-
   }
 }
-.content{
-  p:not(:last-child){
+.content {
+  p:not(:last-child) {
     margin-bottom: 2rem;
   }
-  ul{
+  ul {
     margin: 0;
     @include paragraph_style;
     margin-bottom: 3.5rem;
-
   }
-
 }
 
-
-
-.skill-list{
-  li{
+.skill-list {
+  li {
     display: inline-block;
     max-width: 250px;
     width: 100%;
     @include main_font;
-
   }
-
 }
 
-
-.contact-info{
-  a{
+.contact-info {
+  a {
     margin-top: 0;
   }
 }
 
-
-
-
-
 #bio {
   padding-top: 2rem;
-
 }
 
-#skills{
-  h2{
+#skills {
+  h2 {
     display: block;
 
-    @include breakpoint(lg){
+    @include breakpoint(lg) {
       width: 220px;
       // left: -96px;
     }
 
-    @include breakpoint(xxl){
+    @include breakpoint(xxl) {
       width: auto;
       // left: -32px;
     }
 
-
-    @include breakpoint(xxxl){
+    @include breakpoint(xxxl) {
       // left: 0;
       right: 64px;
     }
-
   }
 }
 
-
-.has-more-work{
+.has-more-work {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  a{
+  a {
     margin: 1.5rem auto;
   }
 }
 
-
-#project-case-study{
-
-  .columns{
+#project-case-study {
+  .columns {
     margin-bottom: 4rem;
   }
 }
 
-
-.title-container{
+.title-container {
   //overflow: hidden;
 }

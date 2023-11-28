@@ -5,7 +5,7 @@
         <ul class="glide__slides" ref="slider">
           <li
             class="glide__slide"
-            v-for="(item, index) in portfolio_data"
+            v-for="(item, index) in portfolio"
             :data-slider-index="index"
           >
             <div class="portfolio-el">
@@ -13,22 +13,25 @@
                 target="_self"
                 class="portfolio-el-img"
                 draggable="true"
-                :data-href="item.url"
-                :href="item.url"
+                :data-href="`/${item.slug}/`"
+                :href="`/${item.slug}/`"
               >
-                <img :src="item.thumbnail" alt="" style="cursor: zoom-in"
+                <img
+                  :src="item.thumbnail.url"
+                  :alt="item.thumbnail.title"
+                  style="cursor: zoom-in"
               /></a>
 
               <div class="portfolio-el-details has-text-centered">
-                <h3 class="is-3">{{ item.project_name }}</h3>
+                <h3 class="is-3">{{ item.title }}</h3>
                 <p>
-                  {{ item.description }}
+                  {{ item.previewDescription }}
                 </p>
                 <a
                   class="button is-outlined"
                   draggable="true"
-                  :data-href="item.url"
-                  :href="item.url"
+                  :data-href="`${item.slug}/`"
+                  :href="`/${item.slug}/`"
                   >View case</a
                 >
               </div>
@@ -48,7 +51,7 @@
         </button>
         <button
           class="glide__arrow glide__arrow--right has-text-right-mobile"
-          :class="{ 'is-disabled': slideIndex === portfolio_data.length - 1 }"
+          :class="{ 'is-disabled': slideIndex === portfolio.length - 1 }"
           data-glide-dir=">"
           ref="nextBtn"
         >
@@ -65,7 +68,7 @@
           >1</span
         >
         <span data-slide-count="total" ref="slideCounterTotal">{{
-          portfolio_data.length
+          portfolio.length
         }}</span>
         <span data-action="close" class="button is-hollow is-small"
           ><i class="material-icons"> close </i></span
@@ -76,7 +79,7 @@
         <span
           id="slide-progress-bar"
           ref="slideProgressBar"
-          :style="{ width: `${100 / portfolio_data.length}%`, left: '0%' }"
+          :style="{ width: `${100 / portfolio.length}%`, left: '0%' }"
         ></span>
       </div>
     </div>
@@ -87,6 +90,7 @@
 import anime from "animejs";
 import Glide from "@glidejs/glide";
 
+const { portfolio } = defineProps(["portfolio"]);
 const slider = ref();
 const nextBtn = ref();
 const prevBtn = ref();
@@ -94,26 +98,6 @@ const slideProgressBar = ref();
 const slideCounterTotal = ref();
 const currentSlideCounter = ref();
 const slideIndex = ref(0);
-const portfolio_data = reactive([
-  {
-    thumbnail: "http://chsantana.com/img/orca/orca-preview.png",
-    project_name: "ORCA",
-    description: `Work in progress timezones management web app for diverse teams.`,
-    url: "http://chsantana.com/orca",
-  },
-  {
-    thumbnail: "http://chsantana.com/img/chimio-img/chimio-preview-1.png",
-    project_name: "Chimio",
-    description: `Anonymous secret sharing app for people seeking fun, to kill time or relief.`,
-    url: "http://chsantana.com/chimio",
-  },
-  {
-    thumbnail: "http://chsantana.com/img/chimio-img/fueltrack.og.png",
-    project_name: "Fueltrack",
-    description: `Web and mobile app to track and manage vehicle maintenance and fuel expenses.`,
-    url: "http://chsantana.com/chimio",
-  },
-]);
 
 const sliderHandler = (glideIndex) => {
   const slideList = document.querySelectorAll(".glide__slides li");

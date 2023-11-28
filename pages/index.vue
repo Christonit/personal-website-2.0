@@ -23,5 +23,30 @@
       </div>
     </div>
   </section>
-  <Slider />
+  <Slider v-if="project_list" :portfolio="project_list" />
 </template>
+
+<script setup>
+const { data: project_list } = await useAsyncData(async ({ $config }) => {
+  const {
+    public: { contentful_space_id, secret },
+  } = $config;
+
+  const { data } = await $fetch(
+    `https://graphql.contentful.com/content/v1/spaces/${contentful_space_id}/`,
+    {
+      method: "POST",
+      headers: {
+        authorization: `Bearer ${secret}`,
+      },
+      body: JSON.stringify({ query: QUERY }),
+    }
+  );
+
+  const {
+    portfolioCollection: { items },
+  } = data;
+
+  return items;
+});
+</script>

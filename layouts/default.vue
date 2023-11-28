@@ -144,16 +144,6 @@ onMounted(() => {
   if (process.client) {
     cursorPointer.value.style.top = mouseY + "px";
 
-    const bar = new ProgressBar.Circle(scrollToTopFab.value, {
-      strokeWidth: 1,
-      easing: "easeIn",
-      duration: 200,
-      color: "rgba(255,255,255,1)",
-      trailColor: "rgba(255,255,255,0.24)",
-      trailWidth: 1,
-      svgStyle: null,
-    });
-
     document
       .querySelectorAll(
         "a, .navbar-item, .portfolio-el-img, .button, button, #scrollToTop, figure, img"
@@ -193,8 +183,19 @@ onMounted(() => {
         });
       });
 
-    if ($router.name !== "index")
+    if ($router.name !== "index") {
+      const bar = new ProgressBar.Circle(scrollToTopFab.value, {
+        strokeWidth: 1,
+        easing: "easeIn",
+        duration: 200,
+        color: "rgba(255,255,255,1)",
+        trailColor: "rgba(255,255,255,0.24)",
+        trailWidth: 1,
+        svgStyle: null,
+      });
+
       useEventListener(window, "scroll", () => debouncedScrollHandler(bar));
+    }
   }
 });
 

@@ -27,6 +27,7 @@
 </template>
 
 <script setup>
+const { sitename } = useRuntimeConfig().public;
 const { data: project_list } = await useAsyncData(async ({ $config }) => {
   const {
     public: { contentful_space_id, secret },
@@ -48,5 +49,26 @@ const { data: project_list } = await useAsyncData(async ({ $config }) => {
   } = data;
 
   return items;
+});
+
+useHead({
+  title: `Hello! - Front-end Developer & Product Designer | ${sitename}`,
+  meta: [
+    {
+      name: "description",
+      content:
+        "A developer and product designer with a strong focus on front end development & UI/UX design who design what he can code.",
+    },
+    { property: "og:title", content: "The Intuitive Web Framework" },
+    {
+      property: "og:description",
+      content:
+        "Build your next Vue.js application with confidence using Nuxt...",
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: "https://nuxt.com" },
+    { property: "og:locale", content: "en_US" },
+    { property: "og:image", content: "https://nuxt.com/social.jpg" },
+  ],
 });
 </script>

@@ -1,6 +1,8 @@
 <script setup>
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-
+const { sitename } = useRuntimeConfig().public;
+const router = useRoute();
+const url = useRequestURL();
 const { data } = await useAsyncData(
   "portfolioData",
   async ({ $config, $router }) => {
@@ -37,8 +39,35 @@ const { data } = await useAsyncData(
     return portfolio;
   }
 );
+
+useHead({
+  title: `${data.value.title} | ${sitename}`,
+  meta: [
+    {
+      name: "description",
+      content: data.value.previewDescription,
+    },
+    { property: "og:title", content: data.value.title },
+    {
+      property: "og:description",
+      content: data.value.previewDescription,
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:url", content: url.href },
+    { property: "og:locale", content: "en_US" },
+    { property: "og:image", content: data.value.thumbnail.url },
+  ],
+});
+
+onMounted(() => {
+  if (process.client) {
+    console.log({ url });
+  }
+});
 </script>
+
 <template>
+  <Head> </Head>
   <section id="project-case-study" class="section is-large">
     <section class="container is-fullhd">
       <div class="columns is-centered is-multiline">

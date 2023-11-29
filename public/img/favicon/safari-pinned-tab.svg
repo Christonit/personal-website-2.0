@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta name="viewport" content="width=device-width" /><title>http://chsantana.com/img/favicon/safari-pinned-tab.svg</title><link rel="stylesheet" type="text/css" href="resource://content-accessible/viewsource.css" /></head><body id="viewsource" class="highlight" style="tab-size: 4"><pre id="line1"><span></span><span class="pi">&lt;?xml version="1.0" standalone="no"?&gt;</span><span>
+<span id="line2"></span></span><span class="error doctype" title="Stray doctype.">&lt;!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+<span id="line3"></span> "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"&gt;</span><span>
+<span id="line4"></span></span><span>&lt;<span class="start-tag">svg</span> <span class="attribute-name">version</span>="<a class="attribute-value">1.0</a>" <span class="attribute-name">xmlns</span>="<a class="attribute-value">http://www.w3.org/2000/svg</a>"
+<span id="line5"></span> <span class="attribute-name">width</span>="<a class="attribute-value">640.000000pt</a>" <span class="attribute-name">height</span>="<a class="attribute-value">640.000000pt</a>" <span class="attribute-name">viewBox</span>="<a class="attribute-value">0 0 640.000000 640.000000</a>"
+<span id="line6"></span> <span class="attribute-name">preserveAspectRatio</span>="<a class="attribute-value">xMidYMid meet</a>"&gt;</span><span>
+<span id="line7"></span></span><span>&lt;<span class="start-tag">metadata</span>&gt;</span><span>
+<span id="line8"></span>Created by potrace 1.11, written by Peter Selinger 2001-2013
+<span id="line9"></span></span><span>&lt;/<span class="end-tag">metadata</span>&gt;</span><span>
+<span id="line10"></span></span><span>&lt;<span class="start-tag">g</span> <span class="attribute-name">transform</span>="<a class="attribute-value">translate(0.000000,640.000000) scale(0.100000,-0.100000)</a>"
+<span id="line11"></span><span class="attribute-name">fill</span>="<a class="attribute-value">#000000</a>" <span class="attribute-name">stroke</span>="<a class="attribute-value">none</a>"&gt;</span><span>
+<span id="line12"></span></span><span>&lt;<span class="start-tag">path</span> <span class="attribute-name">d</span>="<a class="attribute-value">M0 3200 l0 -3200 3200 0 3200 0 0 3200 0 3200 -3200 0 -3200 0 0
+<span id="line13"></span>-3200z m4546 -40 c737 -1102 1340 -2010 1342 -2017 3 -11 -183 -13 -998 -13
+<span id="line14"></span>-798 0 -1000 3 -994 13 4 6 115 171 246 365 131 194 238 358 238 363 0 19
+<span id="line15"></span>-1183 1778 -1192 1773 -5 -3 -274 -404 -598 -890 l-590 -884 245 -367 245
+<span id="line16"></span>-368 -997 -3 c-548 -1 -998 0 -1000 2 -4 4 2077 3126 2535 3804 90 134 168
+<span id="line17"></span>240 172 235 4 -4 610 -910 1346 -2013z m-1137 -965 l212 -315 -431 0 -431 0
+<span id="line18"></span>212 315 c116 173 215 315 219 315 3 0 102 -142 219 -315z</a>"<span>/</span>&gt;</span><span>
+<span id="line19"></span></span><span>&lt;/<span class="end-tag">g</span>&gt;</span><span>
+<span id="line20"></span></span><span>&lt;/<span class="end-tag">svg</span>&gt;</span><span>
+<span id="line21"></span></span></pre></body></html>

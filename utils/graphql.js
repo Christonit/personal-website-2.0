@@ -35,6 +35,12 @@ export const SPECIFIC_QUERY = `title
     items {
       ... on TwoColumnBlock {
         title
+        contentfulMetadata {
+            tags {
+              id
+              name
+            }
+        }
         paragraphs {
           json
         }
@@ -64,6 +70,12 @@ export const SPECIFIC_QUERY = `title
       }
       ... on Block {
         title
+        contentfulMetadata {
+            tags {
+              id
+              name
+            }
+        }
         paragraphs: textBlock {
           json
         }

@@ -130,3 +130,30 @@
     </div>
   </section>
 </template>
+
+<script setup>
+const { sitename } = useRuntimeConfig().public;
+const description = computed(() => {
+  return `${
+    new Date().getFullYear() - 2015
+  }+ years of experience in User Interface design & Web Delevopment with the JAM stack.`;
+});
+
+useHead({
+  title: `My story, so far... | ${sitename}`,
+  meta: [
+    {
+      name: "description",
+      content: description,
+    },
+    { property: "og:title", content: `About me | ${sitename}` },
+    {
+      property: "og:description",
+      content: description,
+    },
+    { property: "og:type", content: "website" },
+    { property: "og:locale", content: "en_US" },
+    // { property: "og:image", content: data.value.thumbnail.url },
+  ],
+});
+</script>

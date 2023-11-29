@@ -1,8 +1,8 @@
 <script setup>
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+
 const { sitename } = useRuntimeConfig().public;
-const router = useRoute();
-const url = useRequestURL();
+
 const { data } = await useAsyncData(
   "portfolioData",
   async ({ $config, $router }) => {
@@ -11,9 +11,7 @@ const { data } = await useAsyncData(
     } = $config;
 
     const slug = $router.currentRoute._rawValue.params.slug[0];
-
     const json_import = await import("~/utils/portfolio-items.json");
-
     const portfolio_items = json_import.default;
     const current_item = portfolio_items.find((item) => item.slug === slug);
 
@@ -53,16 +51,9 @@ useHead({
       content: data.value.previewDescription,
     },
     { property: "og:type", content: "website" },
-    { property: "og:url", content: url.href },
     { property: "og:locale", content: "en_US" },
     { property: "og:image", content: data.value.thumbnail.url },
   ],
-});
-
-onMounted(() => {
-  if (process.client) {
-    console.log({ url });
-  }
 });
 </script>
 

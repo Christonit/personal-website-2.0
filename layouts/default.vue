@@ -24,6 +24,8 @@ import anime from "animejs";
 import ProgressBar from "progressbar.js";
 import debounce from "lodash/debounce";
 
+const url = useRequestURL();
+
 const breakpoints = reactive(
   useBreakpoints({
     small: 768,
@@ -240,5 +242,9 @@ useEventListener("click", (e) => {
   cursorHaloEl.value.style.height = "56px";
 
   cursorAnimations();
+});
+
+useHead({
+  meta: [{ property: "og:url", content: url.href }],
 });
 </script>

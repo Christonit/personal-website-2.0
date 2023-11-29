@@ -14,3 +14,59 @@ export const QUERY = `query {
       }
     }
   }`;
+
+
+
+
+export const SPECIFIC_QUERY = `title
+  slug
+  thumbnail {
+    url
+    title
+  }
+  tasks
+  toolsUsed
+  description
+  previewDescription
+  content {
+    json
+  }
+  blockCollection(limit: 10) {
+    items {
+      ... on TwoColumnBlock {
+        title
+        paragraphs {
+          json
+        }
+      }
+
+      ... on ImageBlock {
+        contentfulMetadata {
+          tags {
+            id
+            name
+          }
+        }
+        portfolioScreenshotsCollection {
+          items {
+            url
+            title
+          }
+        }
+      }
+      ... on TwoColumnImages {
+        twoColumnImagesCollection {
+          items {
+            url
+            title
+          }
+        }
+      }
+      ... on Block {
+        title
+        paragraphs: textBlock {
+          json
+        }
+      }
+    }
+  }`

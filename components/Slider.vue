@@ -9,7 +9,7 @@
             :data-slider-index="index"
           >
             <div class="portfolio-el">
-              <a
+              <NuxtLink
                 target="_self"
                 class="portfolio-el-img"
                 draggable="true"
@@ -20,19 +20,19 @@
                   :src="item.thumbnail.url"
                   :alt="item.thumbnail.title"
                   style="cursor: zoom-in"
-              /></a>
+              /></NuxtLink>
 
               <div class="portfolio-el-details has-text-centered">
                 <h3 class="is-3">{{ item.title }}</h3>
                 <p>
                   {{ item.previewDescription }}
                 </p>
-                <a
+                <NuxtLink
                   class="button is-outlined"
                   draggable="true"
                   :data-href="`${item.slug}/`"
                   :href="`/${item.slug}/`"
-                  >View case</a
+                  >View case</NuxtLink
                 >
               </div>
             </div>

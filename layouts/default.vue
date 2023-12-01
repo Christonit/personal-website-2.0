@@ -150,10 +150,11 @@ onMounted(() => {
     cursorPointer.value.style.top = mouseY + "px";
     document
       .querySelectorAll(
-        "a, .navbar-item, .portfolio-el-img, .button, button, #scrollToTop, figure, img"
+        "a, .navbar-item, .portfolio-el-img, .button, button, #scrollToTop, figure, img, .image"
       )
       .forEach((element) => {
         element.addEventListener("mouseover", function (e) {
+          console.log("MOUSE OVERING");
           anime({
             targets: cursorShadow.value,
             height: 56,

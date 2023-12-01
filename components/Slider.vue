@@ -3,40 +3,11 @@
     <div class="glide glide--ltr glide--slider glide--swipeable">
       <div class="glide__track" data-glide-el="track">
         <ul class="glide__slides" ref="slider">
-          <li
-            class="glide__slide"
+          <SliderItem
             v-for="(item, index) in portfolio"
             :data-slider-index="index"
-          >
-            <div class="portfolio-el">
-              <NuxtLink
-                target="_self"
-                class="portfolio-el-img"
-                draggable="true"
-                :data-href="`/${item.slug}/`"
-                :href="`/${item.slug}/`"
-              >
-                <img
-                  :src="item.thumbnail.url"
-                  :alt="item.thumbnail.title"
-                  style="cursor: zoom-in"
-              /></NuxtLink>
-
-              <div class="portfolio-el-details has-text-centered">
-                <h3 class="is-3">{{ item.title }}</h3>
-                <p>
-                  {{ item.previewDescription }}
-                </p>
-                <NuxtLink
-                  class="button is-outlined"
-                  draggable="true"
-                  :data-href="`${item.slug}/`"
-                  :href="`/${item.slug}/`"
-                  >View case</NuxtLink
-                >
-              </div>
-            </div>
-          </li>
+            v-bind="item"
+          />
         </ul>
       </div>
 

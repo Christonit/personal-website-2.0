@@ -1,6 +1,4 @@
-
-.glide{
-
+.glide {
   &__arrows {
     justify-content: space-between;
     display: flex;
@@ -11,14 +9,13 @@
     bottom: 0;
     //bottom: -2rem;
     width: 100%;
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       position: relative;
       top: 110%;
       margin-bottom: unset;
       bottom: -2rem;
       width: auto;
     }
-
   }
 
   &__arrow {
@@ -35,47 +32,44 @@
     line-height: 2;
     cursor: none;
     transition: all 400ms;
-    @include breakpoint(xxs){
+    @include breakpoint(xxs) {
       min-width: 148px;
       max-width: 224px;
     }
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       min-width: 212px;
       text-align: center;
       padding: 0.438rem 1.1rem;
     }
 
-    i{
+    i {
       position: relative;
       margin: 0;
       transition: all 400ms;
       top: 5px;
-
     }
 
-    &--right{
-      i{
+    &--right {
+      i {
         margin: 0;
         left: 12px;
       }
-
     }
 
-    &--left{
-      i{
-        margin: 0 ;
-        right:12px;
+    &--left {
+      i {
+        margin: 0;
+        right: 12px;
       }
     }
 
-
-    &:hover{
+    &:hover {
       background: none;
       color: $white;
       border: 1px solid transparent;
       @include gradient;
 
-      i{
+      i {
         color: $white;
       }
     }
@@ -88,21 +82,18 @@
     margin-top: 4rem;
     overflow-x: hidden;
 
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       margin-top: 0;
       overflow-x: unset;
-
     }
   }
 
-
-  &__slides{
+  &__slides {
     overflow: unset;
     z-index: 9999;
   }
 
-
-  &__slide{
+  &__slide {
     // max-width: 400px;
     height: 100%;
     min-height: 400px;
@@ -112,41 +103,31 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    @include breakpoint(xxxl){
+    @include breakpoint(xxxl) {
       min-height: 512px;
     }
-    &--active{
+    &--active {
       opacity: 1;
 
-      .portfolio-el:hover{
-
+      .portfolio-el:hover {
       }
-
-
-
     }
 
-    a{
+    a {
       // pointer-events: none;
-      @include breakpoint(sm){
+      @include breakpoint(sm) {
         pointer-events: initial;
       }
     }
   }
 
-  &--swipeable{
+  &--swipeable {
     cursor: default;
   }
 }
 
-
-
-
-.portfolio{
-
-
-
-  &-el{
+.portfolio {
+  &-el {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -156,26 +137,24 @@
     position: relative;
     z-index: 9999;
     transition: all 500ms ease-in;
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       padding: 2rem;
       position: absolute;
     }
 
-
-    @include breakpoint(xxxl){
+    @include breakpoint(xxxl) {
       max-width: 600px;
     }
 
-    h3{
+    h3 {
       margin: 0.5rem 0;
 
-      @include breakpoint(sm){
+      @include breakpoint(sm) {
         margin: 1rem 0 0.75rem;
       }
-
     }
 
-    &.underconstruction{
+    &.underconstruction {
       padding: 2rem;
       position: absolute;
       min-height: 320px;
@@ -185,67 +164,58 @@
       text-align: center;
       align-content: center;
       border: 1px solid $white-fade;
-      top:0;
+      top: 0;
       height: auto;
       transition: all 500ms ease-in;
-      @include breakpoint(xxxl){
-        top:1rem;
+      @include breakpoint(xxxl) {
+        top: 1rem;
         height: 100%;
         max-height: 392px;
       }
 
-      h3{
+      h3 {
         width: 100%;
         margin: 0;
       }
 
-      p{
-        margin:0;
+      p {
+        margin: 0;
       }
     }
 
-    &-details{
+    &-details {
       opacity: 0;
       position: relative;
       transition: 500ms;
       margin-top: -125%;
-      @include breakpoint(sm){
+      @include breakpoint(sm) {
         margin-top: -200px;
       }
 
-
-      h3{
+      h3 {
         opacity: 0;
         transform: translate3d(0, -30%, 0);
         transition: all 0.2s ease-in-out 0.1s;
-
       }
 
-
-      .quote{
+      .quote {
         opacity: 0;
         transition: all 0.2s ease-in 0.25s;
-
       }
 
-
-      .button{
+      .button {
         opacity: 0;
         transition: all 0.2s ease-in 0.4s;
       }
-
-
     }
 
-
-    &:hover {
+    &.active {
       z-index: 9999;
 
-      border: 1px solid rgba(255,255,255,0);
+      border: 1px solid rgba(255, 255, 255, 0);
 
-      background:
-              linear-gradient($black, $black),
-              linear-gradient(180deg, $white, $gold 50%, $white, $gold 100%);
+      background: linear-gradient($black, $black),
+        linear-gradient(180deg, $white, $gold 50%, $white, $gold 100%);
 
       background-repeat: no-repeat;
       background-size: 100% 100%, 100% 200%;
@@ -256,31 +226,25 @@
       transition: all 500ms ease-in;
 
       .portfolio-el-details {
-
         opacity: 1;
 
         margin-top: 0;
 
-        h3{
+        h3 {
           opacity: 1;
           transform: translate3d(0, 0, 0);
         }
 
-        .quote{
+        .quote {
           opacity: 1;
         }
 
-
-        .button{
+        .button {
           opacity: 1;
         }
-
-
       }
     }
-
   }
-
 
   &-el-img {
     max-width: 420px;
@@ -291,77 +255,69 @@
     max-width: 600px;
     display: flex;
     align-items: center;
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       height: 332px;
     }
-    @include breakpoint(xxxl){
+    @include breakpoint(xxxl) {
       // height: 420px;
       max-width: 600px;
       height: 392px;
-
     }
 
-    img{
+    img {
       // width: 100%;
       pointer-events: none;
       height: 100%;
       width: auto;
       max-width: inherit;
     }
-
   }
 
-  &-active{
-    background:
-            linear-gradient($black, $black),
-            linear-gradient(180deg, $white, $gold 50%, $white, $gold 100%);
+  &-active {
+    background: linear-gradient($black, $black),
+      linear-gradient(180deg, $white, $gold 50%, $white, $gold 100%);
     background-repeat: no-repeat;
     background-size: 100% 100%, 100% 200%;
     background-position: 0 0, 0 100%;
     background-origin: padding-box, border-box;
     animation: highlight 3s infinite alternate;
     transition: all 500ms ease-in;
-
   }
-
 }
 
-#slide-counter{
-
+#slide-counter {
   display: block;
   position: absolute;
   top: 1rem;
   z-index: 1;
   width: 100%;
 
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     max-width: 128px;
     width: auto;
     position: absolute;
     top: 22.5%;
   }
 
-  @include breakpoint(lg){
+  @include breakpoint(lg) {
     left: 25%;
   }
 
-  @include breakpoint(xxxl){
+  @include breakpoint(xxxl) {
     left: 25%;
     // left: 30%;
-
   }
-
 }
 
-#slide-progress-bar{
+#slide-progress-bar {
   display: block;
   height: 3px;
   background: $gold;
-  position: relative
+  position: relative;
 }
 #slide-scroll-bar {
   display: none;
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     display: block;
   }
   margin-top: 2rem;
@@ -369,29 +325,27 @@
   z-index: 1;
 }
 
-
-#portfolio-container{
+#portfolio-container {
   padding: 6rem 2rem 2rem;
   height: 85vh;
   //height: 100vh;
 
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     // padding:18rem 2rem;
-    padding:8rem 2rem;
+    padding: 8rem 2rem;
     height: auto;
   }
 
-  .glide{
+  .glide {
     display: flex;
     align-items: baseline;
     height: 100%;
     flex-wrap: wrap;
     transition: all 200ms ease-in;
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       align-items: center;
 
-      display: block
-
+      display: block;
     }
   }
 }

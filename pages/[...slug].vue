@@ -47,6 +47,7 @@ onMounted(() => {
     });
   }
 });
+
 useHead({
   title: `${data.value.title} | ${sitename}`,
   meta: [

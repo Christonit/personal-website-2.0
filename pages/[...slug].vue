@@ -1,6 +1,6 @@
 <script setup>
 import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
-
+import Zooming from "zooming";
 const { sitename } = useRuntimeConfig().public;
 
 const { data } = await useAsyncData(
@@ -38,6 +38,15 @@ const { data } = await useAsyncData(
   }
 );
 
+onMounted(() => {
+  if (process.client) {
+    new Zooming().listen("img").config({
+      bgColor: "#000",
+      enableGrab: false,
+      zIndex: 9999,
+    });
+  }
+});
 useHead({
   title: `${data.value.title} | ${sitename}`,
   meta: [

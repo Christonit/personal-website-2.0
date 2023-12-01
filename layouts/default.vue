@@ -6,7 +6,7 @@
 
   <button
     id="scrollToTop"
-    v-if="$router.name !== 'index'"
+    v-if="$router.name !== 'index' && showScrollToTop"
     ref="scrollToTopFab"
     @click="scrollToTop"
   >
@@ -26,6 +26,7 @@ import debounce from "lodash/debounce";
 
 const url = useRequestURL();
 
+const showScrollToTop = ref(false);
 const breakpoints = reactive(
   useBreakpoints({
     small: 768,
@@ -39,6 +40,7 @@ const scrollToTopFab = ref();
 const cursorPointer = ref();
 const cursorHaloEl = ref();
 const cursorShadow = ref();
+const isScrolling = ref();
 const anchor = ref();
 const windowPosition = reactive(useWindowScroll());
 const smoothScrollToTop = (duration) => {
@@ -84,7 +86,8 @@ const scrollHandler = (bar) => {
   let bottomPosition;
   let scrollPosition = windowPosition.y;
   let scrollCount =
-    parseFloat(scrollPosition / document.body.clientHeight) + 0.55;
+    parseFloat(scrollPosition / (document.documentElement.offsetHeight - 600)) +
+    0.25;
   scrollCount = scrollCount >= 1 ? 1 : scrollCount;
 
   breakpoints.isGreater("small")
@@ -145,7 +148,6 @@ const cursorAnimations = () => {
 onMounted(() => {
   if (process.client) {
     cursorPointer.value.style.top = mouseY + "px";
-
     document
       .querySelectorAll(
         "a, .navbar-item, .portfolio-el-img, .button, button, #scrollToTop, figure, img"
@@ -186,17 +188,21 @@ onMounted(() => {
       });
 
     if ($router.name !== "index") {
-      const bar = new ProgressBar.Circle(scrollToTopFab.value, {
-        strokeWidth: 1,
-        easing: "easeIn",
-        duration: 200,
-        color: "rgba(255,255,255,1)",
-        trailColor: "rgba(255,255,255,0.24)",
-        trailWidth: 1,
-        svgStyle: null,
-      });
+      showScrollToTop.value = true;
 
-      useEventListener(window, "scroll", () => debouncedScrollHandler(bar));
+      setTimeout(() => {
+        const bar = new ProgressBar.Circle(scrollToTopFab.value, {
+          strokeWidth: 1,
+          easing: "easeIn",
+          duration: 200,
+          color: "rgba(255,255,255,1)",
+          trailColor: "rgba(255,255,255,0.24)",
+          trailWidth: 1,
+          svgStyle: null,
+        });
+
+        useEventListener(window, "scroll", () => debouncedScrollHandler(bar));
+      }, 50);
     }
   }
 });
@@ -204,8 +210,17 @@ onMounted(() => {
 watch(
   () => $router.name,
   (newPath, oldPath) => {
+    if (newPath !== oldPath) {
+      showScrollToTop.value = false;
+    }
+
     if (process.client && $router.name !== "index") {
       setTimeout(() => {
+        showScrollToTop.value = true;
+      }, 50);
+
+      setTimeout(() => {
+        showScrollToTop.value = true;
         const bar = new ProgressBar.Circle(scrollToTopFab.value, {
           strokeWidth: 1,
           easing: "easeIn",
@@ -220,6 +235,7 @@ watch(
     }
   }
 );
+
 useEventListener(document, "mousemove", (e) => {
   if (cursorPointer.value) {
     cursorPointer.value.style.left = mouseX.value + "px";
@@ -242,6 +258,20 @@ useEventListener("click", (e) => {
   cursorHaloEl.value.style.height = "56px";
 
   cursorAnimations();
+});
+
+useEventListener("scroll", () => {
+  clearTimeout(isScrolling.value);
+
+  // Disable mousemove during scrolling
+  cursorPointer.value.style.display = "none";
+  cursorShadow.value.style.display = "none";
+
+  // Set a timeout to re-enable mousemove after scrolling stops
+  isScrolling.value = setTimeout(() => {
+    cursorPointer.value.style.display = "block";
+    cursorShadow.value.style.display = "block";
+  }, 500); // Adjust the timeout duration as needed
 });
 
 useHead({

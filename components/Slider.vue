@@ -69,7 +69,11 @@ const slideProgressBar = ref();
 const slideCounterTotal = ref();
 const currentSlideCounter = ref();
 const slideIndex = ref(0);
-
+const breakpoints = reactive(
+  useBreakpoints({
+    small: 768,
+  })
+);
 const sliderHandler = (glideIndex) => {
   const slideList = document.querySelectorAll(".glide__slides li");
   const currentEl = currentSlideCounter.value;
@@ -77,24 +81,36 @@ const sliderHandler = (glideIndex) => {
 
   slideIndex.value = glideIndex;
 
-  anime({
+  let options = {
     targets: currentEl,
     duration: 250,
-    translateX: 30,
     easing: "linear",
     opacity: 0,
-  });
+  };
+  let transformReset = {};
+
+  if (breakpoints.isGreater("small")) {
+    options.translateX = 30;
+
+    transformReset.translateX = 0;
+  } else {
+    options.translateY = -30;
+    transformReset.translateY = 0;
+  }
+  anime(options);
 
   setTimeout(() => {
     currentEl.innerHTML = glideIndex + 1;
-    currentEl.style.transform = "translateX(-30px)";
+    currentEl.style.transform = breakpoints.isGreater("small")
+      ? "translateX(-30px)"
+      : "translateY(30px)";
 
     anime({
       targets: currentEl,
       duration: 250,
-      translateX: 0,
       easing: "linear",
       opacity: 1,
+      ...transformReset,
     });
   }, 250);
 

@@ -5,7 +5,7 @@
     align-items: center;
     //position: absolute;
     position: relative;
-    margin-bottom: -4rem;
+    margin-bottom: 0;
     bottom: 0;
     //bottom: -2rem;
     width: 100%;
@@ -13,7 +13,7 @@
       position: relative;
       top: 110%;
       margin-bottom: unset;
-      bottom: -2rem;
+      bottom: 0;
       width: auto;
     }
   }
@@ -36,6 +36,7 @@
       min-width: 148px;
       max-width: 224px;
     }
+    transform: translateY(0%);
     @include breakpoint(sm) {
       min-width: 212px;
       text-align: center;
@@ -79,11 +80,13 @@
     overflow: unset;
     z-index: 2;
     position: relative;
-    margin-top: 4rem;
+    margin-top: 80px;
     overflow-x: hidden;
+    margin-bottom: 32px;
 
     @include breakpoint(sm) {
       margin-top: 0;
+      margin-bottom: unset;
       overflow-x: unset;
     }
   }
@@ -96,7 +99,6 @@
   &__slide {
     // max-width: 400px;
     height: 100%;
-    min-height: 400px;
     display: flex;
     opacity: 0.3;
     transition: 300ms;
@@ -137,9 +139,13 @@
     position: relative;
     z-index: 9999;
     transition: all 500ms ease-in;
+    width: 100%;
+    background-color: black;
+    border: 1px solid rgba(255, 255, 255, 0.24);
     @include breakpoint(sm) {
       padding: 2rem;
       position: absolute;
+      border: unset;
     }
 
     @include breakpoint(xxxl) {
@@ -227,8 +233,10 @@
 
       .portfolio-el-details {
         opacity: 1;
-
+        position: relative;
+        z-index: 2;
         margin-top: 0;
+        padding: 16px 0;
 
         h3 {
           opacity: 1;
@@ -250,8 +258,8 @@
     max-width: 420px;
     // height: auto;
     overflow: hidden;
-
-    height: 392px;
+    position: relative;
+    z-index: 1;
     max-width: 600px;
     display: flex;
     align-items: center;
@@ -326,12 +334,12 @@
 }
 
 #portfolio-container {
-  padding: 6rem 2rem 2rem;
-  height: 85vh;
+  padding: 64px 20px;
   //height: 100vh;
 
   @include breakpoint(sm) {
     // padding:18rem 2rem;
+    height: 85vh;
     padding: 8rem 2rem;
     height: auto;
   }

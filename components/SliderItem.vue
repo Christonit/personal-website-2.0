@@ -14,13 +14,14 @@
           :alt="thumbnail.title"
           style="cursor: zoom-in"
       /></NuxtLink>
-      <figure v-else class="portfolio-el-img" draggable="true">
-        <img
-          :src="thumbnail.url"
-          :alt="thumbnail.title"
-          style="cursor: zoom-in"
-        />
-      </figure>
+      <img
+        v-else
+        :src="thumbnail.url"
+        :alt="thumbnail.title"
+        style="cursor: zoom-in"
+        class="portfolio-el-img"
+        draggable="true"
+      />
 
       <div class="portfolio-el-details has-text-centered">
         <h3 class="is-3">{{ title }}</h3>
@@ -40,10 +41,12 @@
 </template>
 
 <script setup>
+import { debounce } from "lodash";
+
 const el = ref();
 const breakpoints = reactive(
   useBreakpoints({
-    laptop: 124,
+    laptop: 1024,
   })
 );
 
@@ -51,12 +54,16 @@ defineProps(["slug", "thumbnail", "title", "previewDescription"]);
 
 onMounted(() => {
   if (process.client && breakpoints.isGreater("laptop")) {
-    el.value.addEventListener("mouseover", () => {
+    const addClassDebounced = debounce(() => {
       el.value.classList.add("active");
-    });
-    el.value.addEventListener("mouseleave", () => {
+    }, 200);
+
+    const removeClassDebounced = debounce(() => {
       el.value.classList.remove("active");
-    });
+    }, 200);
+
+    el.value.addEventListener("mouseover", addClassDebounced);
+    el.value.addEventListener("mouseleave", removeClassDebounced);
   } else {
     el.value.addEventListener("touchstart", () => {
       el.value.classList.contains("active")

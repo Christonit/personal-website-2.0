@@ -1,61 +1,89 @@
-
-#logo{
+#logo {
   width: 60px;
   overflow: hidden;
   // background-image: url('../../img/logo.svg');
   // background-size: cover;
   // background-repeat: no-repeat;
   // background-position: center;
-  @include breakpoint(sm){
-    width:unset;
+  @include breakpoint(sm) {
+    width: unset;
   }
 
-  img{
+  svg {
     max-width: none;
     height: 100%;
     max-height: 2.5rem;
     pointer-events: none;
 
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
+      max-height: 3.125rem;
+    }
+  }
+  img {
+    max-width: none;
+    height: 100%;
+    max-height: 2.5rem;
+    pointer-events: none;
+
+    @include breakpoint(sm) {
       max-height: 3.125rem;
     }
   }
 }
 
-.navbar{
+.navbar {
   position: fixed;
-  width: 100%;
-  background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
-  padding: 1.5rem 2rem;
-  @include breakpoint(sm){
-    background-color: rgba(0,0,0,0);
+  width: 100vw;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  padding: 1.5rem 20px;
+  @include breakpoint(sm) {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
     padding: 0.5rem 2rem;
-
   }
-  &-item{
+  &-item {
     text-align: center;
     img {
     }
-
-
   }
-  &-menu{
-    padding: 1.5rem 2rem;
-    margin: 0 -2rem;
+  &-menu {
+    padding: 96px 2rem;
+    margin: 0;
     height: 100vh;
     background-color: black;
     transform: translateY(800px);
-    transition-duration: 400ms;
+    transition: all ease-in-out 300ms;
     opacity: 0.3;
-    @include breakpoint(sm){
+    width: 100vw;
+    margin: auto;
+    left: 0;
+    right: 0;
+    position: fixed;
+    border: unset;
+    top: 0;
+    display: block;
+    overflow-x: hidden;
+    &.is-active {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    @include breakpoint(sm) {
       opacity: 1;
       transform: translateY(0);
+      padding: 1.5rem 2rem;
       padding: 0;
       margin: auto;
       height: auto;
       background-color: unset;
+      width: auto;
+      position: relative;
     }
-    a{
+    a {
       width: 100%;
       margin: 1rem 0;
       // min-width: 128px;
@@ -70,51 +98,46 @@
       padding: 0.875rem 1.1rem;
       line-height: 10px;
 
-      @include breakpoint(sm){
+      @include breakpoint(sm) {
         width: auto;
-
       }
-      &:hover{
+      &:hover {
         color: $gold;
         background: none;
       }
 
-      &:not(.is-cta){
-
-        @include breakpoint(sm){
+      &:not(.is-cta) {
+        @include breakpoint(sm) {
           margin: 0 32px;
-
         }
       }
     }
   }
 
-  &-brand{
-    .navbar-item{
+  &-brand {
+    .navbar-item {
       padding: 0;
-
     }
-
   }
 
-  &-end{
+  &-end {
     width: 100%;
     align-items: center;
   }
 
-  .button.is-primary{
-    border:1px solid $white-fade;
+  .button.is-primary {
+    border: 1px solid $white-fade;
     background: none;
     display: inline-block;
     line-height: 10px;
 
-    &:hover{
+    &:hover {
       color: $white;
       @include gradient;
     }
   }
 
-  &-burger{
+  &-burger {
     height: 3rem;
     width: 3.05rem;
     padding: 8px;
@@ -122,7 +145,7 @@
     justify-content: center;
     @include border-faded;
     transition: transform 500ms;
-    span{
+    span {
       width: 2rem;
       height: 2px;
       left: 0.5rem;
@@ -137,14 +160,12 @@
 
       &:nth-child(3) {
         top: calc(50% + 10px);
-       // top: calc(50% + 10px);
+        // top: calc(50% + 10px);
       }
-
     }
 
-    &.is-active{
-      span{
-
+    &.is-active {
+      span {
         &:nth-child(1) {
           top: calc(50% - 6px);
         }
@@ -152,12 +173,7 @@
         &:nth-child(3) {
           top: calc(50% + 4px);
         }
-
       }
     }
   }
-
-
-
-
 }

@@ -11,7 +11,7 @@ body {
 .hero {
   height: auto;
   min-height: 100vh;
-  padding: 8rem 2rem 0;
+  padding: 0 20px;
   @include breakpoint(sm) {
     padding: 0;
     justify-content: center;

@@ -1,17 +1,18 @@
-
-a{
+a {
   @include link;
   margin-bottom: 0;
-  &:hover{
+  @include breakpoint(4xl) {
+    font-size: calc($text + 0.25vw);
+  }
+  &:hover {
     color: $gold;
     background: none;
     cursor: none;
   }
 }
 
-
-.button{
-  background: rgba(255,255,255,0.0);
+.button {
+  background: rgba(255, 255, 255, 0);
   border-radius: 0;
   border: none;
   width: 100%;
@@ -22,12 +23,23 @@ a{
   padding: 0.875rem 1.1rem;
   font-weight: 700;
   font-size: 1.125rem;
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     font-size: 1.25rem;
+  }
+
+  @include breakpoint(4xl) {
+    font-size: calc(1.25rem + 0.25vw);
+  }
+
+  svg {
+    @include breakpoint(4xl) {
+      height: calc(1.25rem + 0.25vw);
+      width: calc(1.25rem + 0.25vw);
+    }
   }
   color: $white;
 
-  &.is-link{
+  &.is-link {
     background-color: $white;
     border: 1px solid transparent;
     max-width: 224px;
@@ -35,116 +47,95 @@ a{
     color: $black;
     transition: 300ms all ease-in;
     line-height: 0.6;
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       line-height: 0.9;
     }
-    &:hover{
+    &:hover {
       @include gradient;
     }
 
-    i{
+    i {
       top: 6px;
       position: relative;
-      @include breakpoint(sm){
+      @include breakpoint(sm) {
         top: 4px;
       }
     }
 
-    &:first-child{
-      i{
-        margin-right:8px;
-
+    &:first-child {
+      i {
+        margin-right: 8px;
       }
     }
 
-
-    &:last-child{
-      i{
-        margin-left:8px;
-
+    &:last-child {
+      i {
+        margin-left: 8px;
       }
     }
-
-
   }
-
 }
 
-
-.is-disabled{
+.is-disabled {
   border: 1px solid $white-fade !important;
   color: $white-fade !important;
-  background: none!important;
-  &:hover{
-    color: $white!important;
+  background: none !important;
+  &:hover {
+    color: $white !important;
     background: inherit;
-    i{
-      color: $white!important;
+    i {
+      color: $white !important;
     }
-
   }
 }
-.is-cta{
+.is-cta {
   @include gradient;
-  border:1px solid transparent;
-  &:hover{
+  border: 1px solid transparent;
+  &:hover {
     @include gradient;
     color: $gold;
-    border:1px solid transparent;
-
+    border: 1px solid transparent;
   }
 }
 
-
-.is-outlined{
+.is-outlined {
   max-width: 224px;
-  &:hover{
+  &:hover {
     @include gradient;
     color: $white;
-    border:1px solid transparent;
+    border: 1px solid transparent;
   }
-
 }
 
-a.navbar-item, .navbar-link {
+a.navbar-item,
+.navbar-link {
   cursor: none;
   // cursor: pointer;
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     margin: 0;
-
   }
 }
 
-
-
-
-.button.is-text{
+.button.is-text {
   color: $white;
-  @include breakpoint(sm){
-    max-width: 172px;
 
-  }
-
-  &:hover{
+  &:hover {
     color: $gold;
     background: none;
   }
 }
 
-
-.button.is-white{
+.button.is-white {
   color: $white;
   display: inline-flex;
   min-width: unset;
   width: unset;
   background: none;
-  &:hover{
+  &:hover {
     color: $gold;
     background: none;
   }
 }
-
-
 
 .button.is-small {
   border-radius: 0;
@@ -154,48 +145,38 @@ a.navbar-item, .navbar-link {
   padding: 0 0.7rem;
   margin: 0;
 
-  i{
+  i {
     font-size: 1.25rem;
     line-height: 1.8;
   }
 }
 
-.is-hollow{
+.is-hollow {
   @include border-faded;
 }
 
-
-
 .scroll-more-container {
-//@include border-faded;
+  //@include border-faded;
   position: relative;
-
   max-width: 188px;
-
   width: auto;
-
-  height: 44px;
-
+  height: calc(44px + 2vw);
   padding: 8px 16px;
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
-
   text-align: center;
-
   margin: 0 auto;
-
   top: 5rem;
-
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     top: 4rem;
+  }
+  @include breakpoint(xl) {
+    font-size: (calc(1vw));
   }
 }
 
-.arrow-container{
+.arrow-container {
   margin: 0 16px;
   position: relative;
   top: -17px;
@@ -220,7 +201,7 @@ a.navbar-item, .navbar-link {
 
 .chevron:before,
 .chevron:after {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 0;
   height: 90%;
@@ -242,7 +223,6 @@ a.navbar-item, .navbar-link {
 @keyframes move {
   25% {
     opacity: 0.5;
-
   }
   33% {
     opacity: 1;
@@ -261,11 +241,11 @@ a.navbar-item, .navbar-link {
 .text {
   display: block;
   @include main_font;
-  text-align:center;
-  position:relative;
+  text-align: center;
+  position: relative;
   text-transform: uppercase;
   white-space: nowrap;
-  color:$white;
+  color: $white;
   //animation: pulse 2s linear alternate infinite;
 }
 

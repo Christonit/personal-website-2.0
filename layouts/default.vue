@@ -1,7 +1,6 @@
 <template>
   <span ref="anchor" />
   <Header :ref="header" />
-
   <slot />
 
   <button
@@ -154,7 +153,6 @@ onMounted(() => {
       )
       .forEach((element) => {
         element.addEventListener("mouseover", function (e) {
-          console.log("MOUSE OVERING");
           anime({
             targets: cursorShadow.value,
             height: 56,

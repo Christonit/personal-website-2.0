@@ -65,128 +65,152 @@ useHead({
     { property: "og:image", content: data.value.thumbnail.url },
   ],
 });
+definePageMeta({
+  pageTransition: {
+    name: "page",
+    mode: "default",
+  },
+});
 </script>
 
 <template>
   <Head> </Head>
-  <section id="project-case-study" class="section is-large">
-    <section class="container is-fullhd">
-      <div class="columns is-centered is-multiline">
-        <div class="column is-half-desktop">
-          <figure class="image">
-            <img
-              :src="data.thumbnail.url"
-              :alt="`${data.thumbnail.title} image`"
-              style="cursor: zoom-in"
-            />
-          </figure>
-        </div>
-        <div class="column is-7-desktop has-text-centered">
-          <h1>{{ data.title }}</h1>
-          <h4 class="is-4">
-            {{ data.description }}
-          </h4>
-        </div>
-        <div class="columns is-multiline">
-          <div class="column is-3-desktop is-offset-2">
-            <div v-if="data.tasks && data.tasks.length > 0" class="content">
-              <h6><b>Tasks</b></h6>
-              <ul class="skill-list">
-                <li v-for="(task, i) in data.tasks" :key="i">{{ task }}</li>
-              </ul>
-            </div>
-            <div
-              v-if="data.toolsUsed && data.toolsUsed.length > 0"
-              class="content"
-            >
-              <h6><b>Tools</b></h6>
-              <ul class="skill-list">
-                <li v-for="(tool, i) in data.toolsUsed" :key="i">{{ tool }}</li>
-              </ul>
-            </div>
-          </div>
-          <div
-            class="column is-5-desktop"
-            v-html="documentToHtmlString(data.content.json)"
-          ></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container is-fullhd">
-      <div class="columns is-multiline">
-        <template
-          v-if="data.blockCollection && data.blockCollection.items"
-          v-for="(item, i) in data.blockCollection.items"
-        >
-          <div
-            :key="i"
-            v-if="
-              item.portfolioScreenshotsCollection &&
-              item.portfolioScreenshotsCollection.items.length > 0
-            "
-            class="column is-8-desktop is-offset-2-desktop"
-            v-for="(image, j) in item.portfolioScreenshotsCollection.items"
-          >
-            <figure class="image" :key="j">
+  <Transition appear>
+    <section v-if="data" id="project-case-study" class="section is-large">
+      <section class="container is-fullhd">
+        <div class="columns is-centered is-multiline">
+          <div class="column is-half-desktop">
+            <figure class="image">
               <img
-                :src="image.url"
-                :alt="image.title"
+                :src="data.thumbnail.url"
+                :alt="`${data.thumbnail.title} image`"
                 style="cursor: zoom-in"
               />
             </figure>
           </div>
-          <div
-            :key="i"
-            v-if="item.paragraphs"
-            class="column is-8-desktop is-offset-2-desktop"
-          >
-            <h3 class="is-3">{{ item.title }}</h3>
+          <div class="column is-7-desktop has-text-centered">
+            <h1>{{ data.title }}</h1>
+            <h4 class="is-4">
+              {{ data.description }}
+            </h4>
+          </div>
+          <div class="columns is-multiline">
+            <div class="column is-3-desktop is-offset-2">
+              <div v-if="data.tasks && data.tasks.length > 0" class="content">
+                <h6><b>Tasks</b></h6>
+                <ul class="skill-list">
+                  <li v-for="(task, i) in data.tasks" :key="i">{{ task }}</li>
+                </ul>
+              </div>
+              <div
+                v-if="data.toolsUsed && data.toolsUsed.length > 0"
+                class="content"
+              >
+                <h6><b>Tools</b></h6>
+                <ul class="skill-list">
+                  <li v-for="(tool, i) in data.toolsUsed" :key="i">
+                    {{ tool }}
+                  </li>
+                </ul>
+              </div>
+            </div>
             <div
-              v-html="documentToHtmlString(item.paragraphs.json)"
-              :class="{
-                'two-colums-text':
-                  item.contentfulMetadata.tags.length > 0 &&
-                  item.contentfulMetadata.tags[0].name === 'two-column',
-              }"
+              class="column is-5-desktop"
+              v-html="documentToHtmlString(data.content.json)"
             ></div>
           </div>
-          <div
-            class="column is-half-desktop"
-            v-if="
-              item.twoColumnImagesCollection &&
-              item.twoColumnImagesCollection.items.length > 0
-            "
-            :key="i"
-            v-for="(image, j) in item.twoColumnImagesCollection.items"
+        </div>
+      </section>
+
+      <section class="container is-fullhd">
+        <div class="columns is-multiline">
+          <template
+            v-if="data.blockCollection && data.blockCollection.items"
+            v-for="(item, i) in data.blockCollection.items"
           >
-            <figure class="image" :key="j">
-              <img
-                :src="image.url"
-                :alt="image.title"
-                style="cursor: zoom-in"
-              />
-            </figure>
-          </div>
-        </template>
-      </div>
-
-      <div class="columns is-multiline">
-        <div class="column is-full has-text-centered">
-          <h3 class="is-3">Thanks for watching</h3>
-        </div>
-
-        <div class="column is-8 is-offset-2 has-text-centered">
-          <p>
-            Project code available on
-            <a
-              href="https://github.com/Christonit/timezones-app"
-              target="_blank"
-              >Github</a
+            <div
+              :key="i"
+              v-if="
+                item.portfolioScreenshotsCollection &&
+                item.portfolioScreenshotsCollection.items.length > 0
+              "
+              class="column is-8-desktop is-offset-2-desktop"
+              v-for="(image, j) in item.portfolioScreenshotsCollection.items"
             >
-          </p>
+              <figure class="image" :key="j">
+                <img
+                  :src="image.url"
+                  :alt="image.title"
+                  style="cursor: zoom-in"
+                />
+              </figure>
+            </div>
+            <div
+              :key="i"
+              v-if="item.paragraphs"
+              class="column is-8-desktop is-offset-2-desktop"
+            >
+              <h3 class="is-3">{{ item.title }}</h3>
+              <div
+                v-html="documentToHtmlString(item.paragraphs.json)"
+                :class="{
+                  'two-colums-text':
+                    item.contentfulMetadata.tags.length > 0 &&
+                    item.contentfulMetadata.tags[0].name === 'two-column',
+                }"
+              ></div>
+            </div>
+            <div
+              class="column is-half-desktop"
+              v-if="
+                item.twoColumnImagesCollection &&
+                item.twoColumnImagesCollection.items.length > 0
+              "
+              :key="i"
+              v-for="(image, j) in item.twoColumnImagesCollection.items"
+            >
+              <figure class="image" :key="j">
+                <img
+                  :src="image.url"
+                  :alt="image.title"
+                  style="cursor: zoom-in"
+                />
+              </figure>
+            </div>
+          </template>
         </div>
-      </div>
+
+        <div class="columns is-multiline">
+          <div class="column is-full has-text-centered">
+            <h3 class="is-3">Thanks for watching</h3>
+          </div>
+
+          <div class="column is-8 is-offset-2 has-text-centered">
+            <p>
+              Project code available on
+              <a
+                href="https://github.com/Christonit/timezones-app"
+                target="_blank"
+                >Github</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
     </section>
-  </section>
+  </Transition>
 </template>
+
+<style>
+/* we will explain what these classes do next! */
+.v-enter-active,
+.v-leave-active {
+  transition: opacity 0.25s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
+</style>

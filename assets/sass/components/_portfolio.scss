@@ -42,6 +42,12 @@
       text-align: center;
       padding: 0.438rem 1.1rem;
     }
+    @include breakpoint(4xl) {
+      min-width: 212px;
+      text-align: center;
+      padding: calc(0.438rem + 0.25vw) calc(1.1rem + 0.25vw);
+      font-size: calc(1.125rem + 0.25vw);
+    }
 
     i {
       position: relative;
@@ -149,7 +155,10 @@
     }
 
     @include breakpoint(xxxl) {
-      max-width: 600px;
+      max-width: calc(600px + 1vw);
+    }
+    @include breakpoint(5xl) {
+      max-width: calc(600px + 4vw);
     }
 
     h3 {
@@ -216,7 +225,7 @@
     }
 
     &.active {
-      z-index: 9999;
+      z-index: 1;
 
       border: 1px solid rgba(255, 255, 255, 0);
 
@@ -256,24 +265,28 @@
 
   &-el-img {
     max-width: 420px;
-    // height: auto;
     overflow: hidden;
     position: relative;
     z-index: 1;
     max-width: 600px;
     display: flex;
     align-items: center;
+    justify-content: center;
     @include breakpoint(sm) {
       height: 332px;
     }
     @include breakpoint(xxxl) {
-      // height: 420px;
-      max-width: 600px;
-      height: 392px;
+      max-width: calc(600px + 4vw);
+      height: calc(392px + 3vh);
+    }
+    @include breakpoint(4xl) {
+      height: calc(392px + 4vh);
+    }
+    @include breakpoint(5xl) {
+      height: calc(392px + 12vh);
     }
 
     img {
-      // width: 100%;
       pointer-events: none;
       height: 100%;
       width: auto;

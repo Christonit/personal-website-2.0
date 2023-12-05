@@ -1,11 +1,19 @@
-
-@mixin breakpoint( $breakpoint ) {
-  @if map-has-key( $breakpoints, $breakpoint ) {
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
     @media ( min-width: #{ map-get( $breakpoints, $breakpoint ) } ) {
       @content;
     }
-  } @else if type_of( $breakpoint ) == number and unit( $breakpoint ) == px or unit( $breakpoint ) == em or unit( $breakpoint ) == rem {
-    @media (min-width: $breakpoint ) {
+  } @else if
+    type_of($breakpoint) ==
+    number and
+    unit($breakpoint) ==
+    px or
+    unit($breakpoint) ==
+    em or
+    unit($breakpoint) ==
+    rem
+  {
+    @media (min-width: $breakpoint) {
       @content;
     }
   } @else {
@@ -14,35 +22,34 @@
   }
 }
 
-
-
-@mixin main_font{
+@mixin main_font {
   font-family: Work Sans;
   font-style: normal;
 }
 
-@mixin condensed_font{
-  font-family: 'Anton', sans-serif;
+@mixin condensed_font {
+  font-family: "Anton", sans-serif;
   text-transform: uppercase;
 }
 
-
-@mixin border-faded{
-  border:1px solid $white-fade;
-
+@mixin border-faded {
+  border: 1px solid $white-fade;
 }
-@mixin paragraph_style{
+@mixin paragraph_style {
   font-weight: 500;
   line-height: 1.4;
   font-size: $text-m;
   margin-bottom: 1.5rem;
   color: $text-color;
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     font-size: $text;
+  }
+  @include breakpoint(4xl) {
+    font-size: calc($text + 0.25vw);
   }
 }
 
-@mixin link{
+@mixin link {
   font-weight: 700;
   line-height: 1.4;
   font-size: $text;
@@ -50,17 +57,14 @@
   color: $white;
 }
 
-
-@mixin paddingless-horizontal{
+@mixin paddingless-horizontal {
   padding-left: 0;
   padding-right: 0;
 }
 
-
-@mixin gradient{
-  background:
-          linear-gradient($black, $black),
-          linear-gradient(180deg, $gold, $white 50%, $gold 100%);
+@mixin gradient {
+  background: linear-gradient($black, $black),
+    linear-gradient(180deg, $gold, $white 50%, $gold 100%);
 
   background-repeat: no-repeat;
   background-size: 100% 100%, 100% 200%;

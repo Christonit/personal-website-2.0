@@ -118,6 +118,14 @@ watch(
     }
   }
 );
+watch(
+  () => $router.name,
+  (newPath) => {
+    if (newPath === "slug" || (newPath === "about-me" && process.client)) {
+      window.scrollTo(0, 0);
+    }
+  }
+);
 
 const toggleMenu = () => {
   showMenu.value = !showMenu.value;

@@ -13,7 +13,12 @@
         </div>
         <div class="column is-6-desktop">
           <div class="navbar-end">
-            <a href="img/ch-j20-cv.pdf" target="_blank" class="button is-text">
+            <a
+              href="img/ch-j20-cv.pdf"
+              target="_blank"
+              class="button is-text"
+              style="display: inline-block"
+            >
               Download CV
             </a>
 

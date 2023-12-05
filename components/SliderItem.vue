@@ -1,6 +1,11 @@
 <template>
   <li class="glide__slide">
-    <div class="portfolio-el" ref="el">
+    <div
+      class="portfolio-el"
+      ref="el"
+      @mouseenter="addClass"
+      @mouseleave="removeClass"
+    >
       <NuxtLink
         v-if="breakpoints.isGreater('laptop')"
         target="_self"
@@ -41,9 +46,11 @@
 </template>
 
 <script setup>
-import { debounce } from "lodash";
+import { throttle } from "lodash";
 
 const el = ref();
+const isHover = ref(true);
+const isClassAdded = ref(false);
 const breakpoints = reactive(
   useBreakpoints({
     laptop: 1024,
@@ -52,19 +59,27 @@ const breakpoints = reactive(
 
 defineProps(["slug", "thumbnail", "title", "previewDescription"]);
 
+const addClass = () => {
+  console.log("IN");
+  if (!isClassAdded.value && breakpoints.isGreater("laptop")) {
+    el.value.classList.add("active");
+    isClassAdded.value = true;
+    el.value.removeEventListener("mouseenter", addClass);
+  }
+};
+
+const removeClass = () => {
+  console.log("OUT");
+
+  if (isClassAdded.value && breakpoints.isGreater("laptop")) {
+    el.value.classList.remove("active");
+    isClassAdded.value = false;
+    el.value.removeEventListener("mouseleave", removeClass);
+  }
+};
+
 onMounted(() => {
-  if (process.client && breakpoints.isGreater("laptop")) {
-    const addClassDebounced = debounce(() => {
-      el.value.classList.add("active");
-    }, 200);
-
-    const removeClassDebounced = debounce(() => {
-      el.value.classList.remove("active");
-    }, 200);
-
-    el.value.addEventListener("mouseover", addClassDebounced);
-    el.value.addEventListener("mouseleave", removeClassDebounced);
-  } else {
+  if (process.client && !breakpoints.isGreater("laptop")) {
     el.value.addEventListener("touchstart", () => {
       el.value.classList.contains("active")
         ? el.value.classList.remove("active")

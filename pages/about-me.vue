@@ -5,19 +5,12 @@
         <div
           class="column is-2-desktop has-text-right-desktop has-right-padding title-container"
         >
-          <h2
-            class="title about-title is-1 wow animated slideInRight"
-            data-wow-duration="600ms"
-          >
+          <h2 class="title about-title is-1">
             <span class="has-stroke">WHO</span> I AM
           </h2>
         </div>
         <div class="column is-8-tablet is-6-desktop">
-          <div
-            class="content wow animated has-right-padding fadeIn"
-            data-wow-delay="600ms"
-            data-wow-duration="1500ms"
-          >
+          <div class="content has-right-padding">
             <h5>
               I´m a designer and developer living in the Caribbean driven by the
               desire to constantly improve existing products, be the best
@@ -71,7 +64,7 @@
           class="column is-2-desktop has-text-right-desktop has-right-padding title-container"
         >
           <h2
-            class="title about-title is-1 wow animated slideInRight"
+            class="title about-title is-1"
             data-wow-duration="600ms"
             data-wow-offset="2"
           >
@@ -79,12 +72,7 @@
           </h2>
         </div>
         <div class="column is-8-tablet is-6-widescreen">
-          <div
-            class="content wow animated fadeIn"
-            data-wow-delay="600ms"
-            data-wow-duration="1500ms"
-            data-wow-offset="2"
-          >
+          <div class="content">
             <h6><b>Web Development</b></h6>
             <ul class="skill-list">
               <li>Vue.Js &amp; Vuex</li>
@@ -102,7 +90,7 @@
             </ul>
           </div>
           <div
-            class="content wow animated fadeIn"
+            class="content"
             data-wow-delay="500ms"
             data-wow-duration="1500ms"
             data-wow-offset="2"

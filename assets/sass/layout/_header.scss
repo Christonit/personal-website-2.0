@@ -101,6 +101,13 @@
       @include breakpoint(sm) {
         width: auto;
       }
+      @include breakpoint(4xl) {
+        font-size: calc(1.25rem + 0.25vw);
+        height: calc(44px + 0.5vw);
+        display: inline-flex !important;
+        justify-content: center;
+        align-items: center;
+      }
       &:hover {
         color: $gold;
         background: none;

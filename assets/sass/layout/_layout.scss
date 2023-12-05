@@ -64,6 +64,9 @@ body {
   @include breakpoint(sm) {
     padding: 1.25rem;
   }
+  @include breakpoint(4xl) {
+    padding: calc(1.25rem + 0.25vw);
+  }
 }
 .content {
   p:not(:last-child) {
@@ -133,4 +136,9 @@ body {
 
 .title-container {
   //overflow: hidden;
+}
+
+.column.is-12,
+.column.is-12-tablet {
+  max-width: 2400px;
 }

@@ -186,7 +186,7 @@ onMounted(() => {
         });
       });
 
-    if ($router.name !== "index") {
+    if ($router.name !== "index" && $router.name !== "about-me") {
       showScrollToTop.value = true;
 
       setTimeout(() => {

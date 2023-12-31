@@ -2678,10 +2678,6 @@ a.box:active {
   }
 }
 
-.content li + li {
-  margin-top: 0.25em;
-}
-
 .content p:not(:last-child),
 .content dl:not(:last-child),
 .content ol:not(:last-child),
@@ -2738,7 +2734,7 @@ a.box:active {
 }
 
 .content h6 {
-  font-size: 1em;
+  font-size: 20px;
   margin-bottom: 1em;
 }
 
@@ -2769,11 +2765,6 @@ a.box:active {
   list-style-type: upper-roman;
 }
 
-.content ul {
-  list-style: disc outside;
-  margin-left: 2em;
-  margin-top: 1em;
-}
 .content ul ul {
   list-style-type: circle;
   margin-top: 0.5em;

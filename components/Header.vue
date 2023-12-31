@@ -31,7 +31,10 @@
           Work
         </NuxtLink>
 
-        <NuxtLink to="/about-me" class="navbar-item"> About me </NuxtLink>
+        <NuxtLink to="/about-me/" class="navbar-item">About me </NuxtLink>
+        <NuxtLink to="/my-experience/" class="navbar-item"
+          >My Experience</NuxtLink
+        >
 
         <NuxtLink
           href="mailto:me@chsantana.com"

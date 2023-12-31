@@ -34,7 +34,7 @@
         <span
           data-slide-count="current"
           ref="currentSlideCounter"
-          class="has-stroke"
+          class="has-stroke md:block"
           style="transform: translateX(0px); opacity: 1"
           >1</span
         >

@@ -1,5 +1,4 @@
-
-footer{
+footer {
   position: relative;
   width: 100%;
   text-align: center;
@@ -9,7 +8,7 @@ footer{
   min-height: 60vh;
   padding: 6rem 2rem;
 
-  @include breakpoint(sm){
+  @include breakpoint(sm) {
     min-height: auto;
     position: sticky;
     z-index: 999;
@@ -17,44 +16,43 @@ footer{
     text-align: inherit;
     padding: inherit;
   }
-  a{
+  a {
     margin-bottom: 1rem;
-    @include breakpoint(sm){
+    @include breakpoint(sm) {
       margin-bottom: inherit;
     }
   }
 
-  span{
+  span {
     @include link;
   }
 
   .columns {
-
-    margin:0;
+    margin: 0;
   }
 
-  .column{
+  .column {
     @include paddingless-horizontal;
 
-    &:last-child{
+    &:last-child {
       display: flex;
+      flex-wrap: wrap;
+      @include breakpoint(md) {
+      }
     }
-
   }
 
+  .navbar-end {
+    align-items: center;
 
-  .navbar-end{
-    align-items: end;
-
-    i{
+    i {
       font-size: $text;
-
     }
 
-    .is-text{
+    .is-text {
       margin: 0 0 2rem;
 
-      @include breakpoint(sm){
+      @include breakpoint(sm) {
         margin: inherit;
       }
     }

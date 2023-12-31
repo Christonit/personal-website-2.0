@@ -290,3 +290,28 @@ ul.experience-timeline {
     background-position: center;
   }
 }
+
+.dev-signature {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  color: $text-color;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 0 32px;
+
+  @include breakpoint(md) {
+    margin: 0 24px;
+    width: auto;
+  }
+  img {
+    margin: 0 0 0 12px;
+  }
+  .nuxt-logo {
+    height: 32px;
+  }
+  img:not(.nuxt-logo) {
+    height: 24px;
+  }
+}

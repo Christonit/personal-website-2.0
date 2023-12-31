@@ -60,8 +60,9 @@ const breakpoints = reactive(
 defineProps(["slug", "thumbnail", "title", "previewDescription"]);
 
 const addClass = () => {
-  console.log("IN");
   if (!isClassAdded.value && breakpoints.isGreater("laptop")) {
+    console.log("IN");
+
     el.value.classList.add("active");
     isClassAdded.value = true;
     el.value.removeEventListener("mouseenter", addClass);
@@ -69,9 +70,9 @@ const addClass = () => {
 };
 
 const removeClass = () => {
-  console.log("OUT");
-
   if (isClassAdded.value && breakpoints.isGreater("laptop")) {
+    console.log("OUT");
+
     el.value.classList.remove("active");
     isClassAdded.value = false;
     el.value.removeEventListener("mouseleave", removeClass);
@@ -80,10 +81,14 @@ const removeClass = () => {
 
 onMounted(() => {
   if (process.client && !breakpoints.isGreater("laptop")) {
-    el.value.addEventListener("touchstart", () => {
-      el.value.classList.contains("active")
-        ? el.value.classList.remove("active")
-        : el.value.classList.add("active");
+    el.value.addEventListener("touchstart", (e) => {
+      if (!el.value.classList.contains("active")) {
+        el.value.classList.add("active");
+      } else {
+        if (e.target.tagName === "A") return;
+        el.value.classList.remove("active");
+        return;
+      }
     });
   }
 });

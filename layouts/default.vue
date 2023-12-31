@@ -213,7 +213,11 @@ watch(
       showScrollToTop.value = false;
     }
 
-    if (process.client && $router.name !== "index") {
+    if (
+      process.client &&
+      $router.name !== "index" &&
+      $router.name !== "about-me"
+    ) {
       setTimeout(() => {
         showScrollToTop.value = true;
       }, 50);

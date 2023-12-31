@@ -319,20 +319,19 @@ const description = computed(() => {
 });
 
 useHead({
-  title: `My story, so far... | ${sitename}`,
+  title: `My experience, so far... | ${sitename}`,
   meta: [
     {
       name: "description",
       content: description,
     },
-    { property: "og:title", content: `About me | ${sitename}` },
+    { property: "og:title", content: `My experience | ${sitename}` },
     {
       property: "og:description",
       content: description,
     },
     { property: "og:type", content: "website" },
     { property: "og:locale", content: "en_US" },
-    // { property: "og:image", content: data.value.thumbnail.url },
   ],
 });
 </script>

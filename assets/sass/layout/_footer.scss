@@ -21,6 +21,11 @@ footer {
     @include breakpoint(sm) {
       margin-bottom: inherit;
     }
+
+    svg {
+      min-height: 24px;
+      min-width: 24px;
+    }
   }
 
   span {

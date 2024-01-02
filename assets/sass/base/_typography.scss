@@ -91,10 +91,7 @@ h3 {
   margin: 0;
   font-size: $is-1-xs;
   letter-spacing: -1px;
-  @include breakpoint(xxs) {
-    letter-spacing: 0;
-    font-size: $is-1-m;
-  }
+
   @include breakpoint(sm) {
     font-size: $is-1;
   }
@@ -155,6 +152,10 @@ p {
   margin-bottom: 2rem;
   @include breakpoint(sm) {
     margin-bottom: 3.25rem;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
   }
 }
 

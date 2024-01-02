@@ -16,11 +16,12 @@
             <span class="dev-signature"
               >Made with
               <NuxtLink to="https://nuxt.com/" target="_blank">
-                <img src="/img/icon-green.svg" class="nuxt-logo" /></NuxtLink
-              >. Content managed with
+                <img src="/img/icon-green.svg" class="nuxt-logo"
+              /></NuxtLink>
+              <!-- . Content managed with
               <NuxtLink href="https://www.contentful.com/" target="_blank">
                 <img src="/img/contentful.svg" /> </NuxtLink
-              >.
+              >. -->
             </span>
 
             <NuxtLink

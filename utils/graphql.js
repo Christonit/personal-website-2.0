@@ -24,13 +24,20 @@ export const SPECIFIC_QUERY = `title
     url
     title
   }
+  featuredImage {
+    url
+    title
+  }
   tasks
   toolsUsed
   description
   previewDescription
+  visitPage
+  visitRepo
   content {
     json
   }
+
   blockCollection(limit: 10) {
     items {
       ... on TwoColumnBlock {

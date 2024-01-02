@@ -4,7 +4,7 @@
       <div class="column hero-body is-12 is-middle-aligned">
         <h1 class="title is-1 is-spaced">Christopher Santana</h1>
         <h1 class="title is-1 is-spaced highlight">
-          Product designer &amp; front end developer
+          Front-end Developer &amp; UI designer
         </h1>
         <h1 class="is-1 neon">AT YOUR SERVICE.</h1>
       </div>
@@ -52,12 +52,12 @@ const { data: project_list } = await useAsyncData(async ({ $config }) => {
 });
 
 useHead({
-  title: `Hello! - Front-end Developer & Product Designer | ${sitename}`,
+  title: `Hello! - Front-end Developer & UI Designer | ${sitename}`,
   meta: [
     {
       name: "description",
       content:
-        "A developer and product designer with a strong focus on front end development & UI/UX design who design what he can code.",
+        "A developer and UI designer with a strong focus on front end development & UI/UX design who design what he can code.",
     },
     { property: "og:title", content: "The Intuitive Web Framework" },
     {

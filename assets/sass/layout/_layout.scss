@@ -21,16 +21,15 @@ body {
   &-body {
     flex-grow: 1;
     flex-shrink: 0;
-    @include breakpoint(sm) {
-      padding: 0 4rem !important;
-      //margin-top: -3rem;
-      //padding: 3rem 4rem !important
-    }
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
 .columns:not(:last-child) {
-  margin-bottom: 5rem;
+  @include breakpoint(lg) {
+    margin-bottom: 5rem;
+  }
 }
 
 .hero.is-primary {
@@ -80,6 +79,14 @@ body {
 }
 
 .skill-list {
+  &.alt {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    @include breakpoint(md) {
+      gap: 24px;
+    }
+  }
   li {
     display: inline-block;
     max-width: 280px;
@@ -133,6 +140,14 @@ body {
   .columns {
     margin-bottom: 4rem;
   }
+
+  h3 {
+    margin-bottom: $is-3-m;
+
+    @include breakpoint(lg) {
+      margin-bottom: $is-3;
+    }
+  }
 }
 
 .title-container {
@@ -152,13 +167,15 @@ body {
   @include breakpoint(md) {
     grid-template-columns: repeat(2, auto);
   }
-  @include breakpoint(lg) {
+  @include breakpoint(xxl) {
     grid-template-columns: repeat(3, auto);
   }
 }
 
 .md\:block {
-  display: block;
+  @include breakpoint(md) {
+    display: block;
+  }
 }
 
 .flex {
@@ -181,6 +198,8 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 20px;
+  padding-bottom: 24px;
+
   img {
     margin-top: 8px;
   }
@@ -304,6 +323,10 @@ ul.experience-timeline {
   @include breakpoint(md) {
     margin: 0 24px;
     width: auto;
+  }
+
+  a {
+    line-height: normal;
   }
   img {
     margin: 0 0 0 12px;

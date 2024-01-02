@@ -82,7 +82,11 @@ definePageMeta({
           <div class="column is-half-desktop">
             <figure class="image">
               <img
-                :src="data.thumbnail.url"
+                :src="
+                  data.featuredImage.url
+                    ? data.featuredImage.url
+                    : data.thumbnail.url
+                "
                 :alt="`${data.thumbnail.title} image`"
                 style="cursor: zoom-in"
               />
@@ -94,11 +98,11 @@ definePageMeta({
               {{ data.description }}
             </h4>
           </div>
-          <div class="columns is-multiline">
+          <div class="columns is-multiline mb-0">
             <div class="column is-3-desktop is-offset-2">
               <div v-if="data.tasks && data.tasks.length > 0" class="content">
                 <h6><b>Tasks</b></h6>
-                <ul class="skill-list">
+                <ul class="skill-list alt">
                   <li v-for="(task, i) in data.tasks" :key="i">{{ task }}</li>
                 </ul>
               </div>
@@ -107,7 +111,7 @@ definePageMeta({
                 class="content"
               >
                 <h6><b>Tools</b></h6>
-                <ul class="skill-list">
+                <ul class="skill-list alt">
                   <li v-for="(tool, i) in data.toolsUsed" :key="i">
                     {{ tool }}
                   </li>
@@ -183,16 +187,17 @@ definePageMeta({
         <div class="columns is-multiline">
           <div class="column is-full has-text-centered">
             <h3 class="is-3">Thanks for watching</h3>
-          </div>
 
-          <div class="column is-8 is-offset-2 has-text-centered">
-            <p>
-              Project code available on
-              <a
-                href="https://github.com/Christonit/timezones-app"
-                target="_blank"
-                >Github</a
+            <p v-if="data.visitPage">
+              <u>
+                <NuxtLink :href="data.visitPage" target="_blank"
+                  >Click here to visit the project.</NuxtLink
+                ></u
               >
+            </p>
+            <p v-if="data.visitRepo">
+              Project code available on
+              <NuxtLink :href="data.visitRepo" target="_blank">Github</NuxtLink>
             </p>
           </div>
         </div>

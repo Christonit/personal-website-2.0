@@ -3,9 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build": "node ./utils/fetchCmsContent.js &&  nuxt build",
+    "dev": "node ./utils/fetchCmsContent.js &&  nuxt dev",
+    "generate": "node ./utils/fetchCmsContent.js &&  nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },

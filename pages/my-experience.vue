@@ -82,16 +82,7 @@
                     </p>
                   </div>
                 </div>
-                <div class="experience-block">
-                  <img
-                    src="/img/star-icon-outline.svg"
-                    alt="star-icon-outline"
-                  />
 
-                  <div>
-                    <p>In charge of Production passes</p>
-                  </div>
-                </div>
                 <div class="experience-block">
                   <img
                     src="/img/star-icon-outline.svg"

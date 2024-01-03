@@ -6,6 +6,8 @@
 }
 body {
   background: $black;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .hero {
@@ -23,6 +25,7 @@ body {
     flex-shrink: 0;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin: 0 auto;
   }
 }
 
@@ -48,7 +51,8 @@ body {
 
 .section.is-large {
   padding: 6rem 20px 32px;
-  @include breakpoint(sm) {
+
+  @include breakpoint(lg) {
     padding: 12rem 2rem;
   }
 }
@@ -90,7 +94,7 @@ body {
   li {
     display: inline-block;
     max-width: 280px;
-    min-width: 280px;
+    min-width: 320px;
     width: 100%;
     @include main_font;
   }
@@ -167,8 +171,14 @@ body {
   @include breakpoint(md) {
     grid-template-columns: repeat(2, auto);
   }
-  @include breakpoint(xxl) {
+  @include breakpoint(xxxl) {
     grid-template-columns: repeat(3, auto);
+  }
+}
+
+.sm\:block {
+  @include breakpoint(sm) {
+    display: block;
   }
 }
 
@@ -337,4 +347,58 @@ ul.experience-timeline {
   img:not(.nuxt-logo) {
     height: 24px;
   }
+}
+
+.mx-auto {
+  margin: auto;
+}
+
+.column.is-8-tablet.is-6-desktop {
+  width: 66.66667%;
+  @include breakpoint(lg) {
+    flex: none;
+    width: 50%;
+  }
+}
+
+.column.is-half-desktop {
+  @media screen and (max-width: 1280px) {
+    width: 100%;
+  }
+}
+.column.is-7-desktop.has-text-centered {
+  @media screen and (max-width: 1280px) {
+    width: 100%;
+  }
+}
+#project-case-study .container.is-fullhd {
+  @media screen and (max-width: 1280px) {
+    max-width: 896px;
+  }
+}
+
+.column.is-offset-2,
+.column.is-offset-2-tablet {
+  @media screen and (max-width: 896px) {
+    margin-left: 0;
+  }
+}
+.column.is-3-desktop.is-offset-2 {
+  @media screen and (min-width: 768px) and (max-width: 1280px) {
+    width: 30%;
+  }
+}
+.column.is-2-desktop {
+  @media screen and (min-width: 768px) and (max-width: 1280px) {
+    width: 25%;
+  }
+}
+
+#project-case-study .columns.is-multiline {
+  @media screen and (max-width: 896px) {
+    flex-direction: column;
+  }
+}
+.columns.is-centered.is-multiline {
+  display: block;
 }

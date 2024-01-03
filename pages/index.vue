@@ -10,7 +10,7 @@
       </div>
       <div class="column is-5-desktop"></div>
 
-      <div class="column is-12">
+      <div class="column is-12 mx-auto">
         <div class="scroll-more-container">
           <span class="text">Scroll down</span>
 

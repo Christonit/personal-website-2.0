@@ -9,7 +9,7 @@
     bottom: 0;
     //bottom: -2rem;
     width: 100%;
-    @include breakpoint(sm) {
+    @include breakpoint(md) {
       position: relative;
       top: 110%;
       margin-bottom: unset;
@@ -37,7 +37,7 @@
       max-width: 224px;
     }
     transform: translateY(0%);
-    @include breakpoint(sm) {
+    @include breakpoint(md) {
       min-width: 212px;
       text-align: center;
       padding: 0.438rem 1.1rem;
@@ -90,7 +90,7 @@
     overflow-x: hidden;
     margin-bottom: 32px;
 
-    @include breakpoint(sm) {
+    @include breakpoint(md) {
       margin-top: 0;
       margin-bottom: unset;
       overflow-x: unset;
@@ -111,6 +111,9 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    @include breakpoint(md) {
+      min-height: 442px;
+    }
     @include breakpoint(xxxl) {
       min-height: 512px;
     }
@@ -148,7 +151,7 @@
     width: 100%;
     background-color: black;
     border: 1px solid rgba(255, 255, 255, 0.24);
-    @include breakpoint(sm) {
+    @include breakpoint(md) {
       padding: 2rem;
       position: absolute;
       border: unset;
@@ -158,13 +161,13 @@
       max-width: calc(600px + 1vw);
     }
     @include breakpoint(5xl) {
-      max-width: calc(600px + 4vw);
+      max-width: calc(600px + 6vw);
     }
 
     h3 {
       margin: 0.5rem 0;
 
-      @include breakpoint(sm) {
+      @include breakpoint(md) {
         margin: 1rem 0 0.75rem;
       }
     }
@@ -203,8 +206,8 @@
       position: relative;
       transition: 500ms;
       margin-top: -125%;
-      @include breakpoint(sm) {
-        margin-top: -200px;
+      @include breakpoint(md) {
+        margin-top: -350px;
       }
 
       h3 {
@@ -272,7 +275,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    @include breakpoint(sm) {
+    @include breakpoint(md) {
       height: 332px;
     }
     @include breakpoint(xxxl) {
@@ -283,7 +286,7 @@
       height: calc(392px + 4vh);
     }
     @include breakpoint(5xl) {
-      height: calc(392px + 12vh);
+      height: calc(392px + 6vh);
     }
 
     img {
@@ -291,6 +294,7 @@
       height: 100%;
       width: auto;
       max-width: inherit;
+      object-fit: cover;
     }
   }
 
@@ -313,7 +317,7 @@
   z-index: 1;
   width: 100%;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     max-width: 128px;
     width: auto;
     position: absolute;
@@ -338,7 +342,7 @@
 }
 #slide-scroll-bar {
   display: none;
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     display: block;
   }
   margin-top: 2rem;
@@ -350,10 +354,10 @@
   padding: 64px 20px;
   //height: 100vh;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     // padding:18rem 2rem;
     height: 85vh;
-    padding: 8rem 2rem;
+    padding: 8rem 2rem 16rem;
     height: auto;
   }
 
@@ -363,7 +367,7 @@
     height: 100%;
     flex-wrap: wrap;
     transition: all 200ms ease-in;
-    @include breakpoint(sm) {
+    @include breakpoint(md) {
       align-items: center;
 
       display: block;

@@ -1499,13 +1499,13 @@ a.has-text-danger:focus {
   }
 }
 
-@media screen and (min-width: 1088px) {
+@media screen and (min-width: 896px) {
   .is-hidden-desktop {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 1088px) and (max-width: 1279px) {
+@media screen and (min-width: 896px) and (max-width: 1279px) {
   .is-hidden-desktop-only {
     display: none !important;
   }
@@ -7539,163 +7539,163 @@ label.panel-block:hover {
     margin-left: 100%;
   }
 }
-@media screen and (max-width: 1087px) {
-  .column.is-narrow-touch {
-    flex: none;
-  }
-  .column.is-full-touch {
-    flex: none;
-    width: 100%;
-  }
-  .column.is-three-quarters-touch {
-    flex: none;
-    width: 75%;
-  }
-  .column.is-two-thirds-touch {
-    flex: none;
-    width: 66.6666%;
-  }
-  .column.is-half-touch {
-    flex: none;
-    width: 50%;
-  }
-  .column.is-one-third-touch {
-    flex: none;
-    width: 33.3333%;
-  }
-  .column.is-one-quarter-touch {
-    flex: none;
-    width: 25%;
-  }
-  .column.is-one-fifth-touch {
-    flex: none;
-    width: 20%;
-  }
-  .column.is-two-fifths-touch {
-    flex: none;
-    width: 40%;
-  }
-  .column.is-three-fifths-touch {
-    flex: none;
-    width: 60%;
-  }
-  .column.is-four-fifths-touch {
-    flex: none;
-    width: 80%;
-  }
-  .column.is-offset-three-quarters-touch {
-    margin-left: 75%;
-  }
-  .column.is-offset-two-thirds-touch {
-    margin-left: 66.6666%;
-  }
-  .column.is-offset-half-touch {
-    margin-left: 50%;
-  }
-  .column.is-offset-one-third-touch {
-    margin-left: 33.3333%;
-  }
-  .column.is-offset-one-quarter-touch {
-    margin-left: 25%;
-  }
-  .column.is-offset-one-fifth-touch {
-    margin-left: 20%;
-  }
-  .column.is-offset-two-fifths-touch {
-    margin-left: 40%;
-  }
-  .column.is-offset-three-fifths-touch {
-    margin-left: 60%;
-  }
-  .column.is-offset-four-fifths-touch {
-    margin-left: 80%;
-  }
-  .column.is-1-touch {
-    flex: none;
-    width: 8.33333%;
-  }
-  .column.is-offset-1-touch {
-    margin-left: 8.33333%;
-  }
-  .column.is-2-touch {
-    flex: none;
-    width: 16.66667%;
-  }
-  .column.is-offset-2-touch {
-    margin-left: 16.66667%;
-  }
-  .column.is-3-touch {
-    flex: none;
-    width: 25%;
-  }
-  .column.is-offset-3-touch {
-    margin-left: 25%;
-  }
-  .column.is-4-touch {
-    flex: none;
-    width: 33.33333%;
-  }
-  .column.is-offset-4-touch {
-    margin-left: 33.33333%;
-  }
-  .column.is-5-touch {
-    flex: none;
-    width: 41.66667%;
-  }
-  .column.is-offset-5-touch {
-    margin-left: 41.66667%;
-  }
-  .column.is-6-touch {
-    flex: none;
-    width: 50%;
-  }
-  .column.is-offset-6-touch {
-    margin-left: 50%;
-  }
-  .column.is-7-touch {
-    flex: none;
-    width: 58.33333%;
-  }
-  .column.is-offset-7-touch {
-    margin-left: 58.33333%;
-  }
-  .column.is-8-touch {
-    flex: none;
-    width: 66.66667%;
-  }
-  .column.is-offset-8-touch {
-    margin-left: 66.66667%;
-  }
-  .column.is-9-touch {
-    flex: none;
-    width: 75%;
-  }
-  .column.is-offset-9-touch {
-    margin-left: 75%;
-  }
-  .column.is-10-touch {
-    flex: none;
-    width: 83.33333%;
-  }
-  .column.is-offset-10-touch {
-    margin-left: 83.33333%;
-  }
-  .column.is-11-touch {
-    flex: none;
-    width: 91.66667%;
-  }
-  .column.is-offset-11-touch {
-    margin-left: 91.66667%;
-  }
-  .column.is-12-touch {
-    flex: none;
-    width: 100%;
-  }
-  .column.is-offset-12-touch {
-    margin-left: 100%;
-  }
-}
-@media screen and (min-width: 1088px) {
+// @media screen and (max-width: 1087px) {
+//   .column.is-narrow-touch {
+//     flex: none;
+//   }
+//   .column.is-full-touch {
+//     flex: none;
+//     width: 100%;
+//   }
+//   .column.is-three-quarters-touch {
+//     flex: none;
+//     width: 75%;
+//   }
+//   .column.is-two-thirds-touch {
+//     flex: none;
+//     width: 66.6666%;
+//   }
+//   .column.is-half-touch {
+//     flex: none;
+//     width: 50%;
+//   }
+//   .column.is-one-third-touch {
+//     flex: none;
+//     width: 33.3333%;
+//   }
+//   .column.is-one-quarter-touch {
+//     flex: none;
+//     width: 25%;
+//   }
+//   .column.is-one-fifth-touch {
+//     flex: none;
+//     width: 20%;
+//   }
+//   .column.is-two-fifths-touch {
+//     flex: none;
+//     width: 40%;
+//   }
+//   .column.is-three-fifths-touch {
+//     flex: none;
+//     width: 60%;
+//   }
+//   .column.is-four-fifths-touch {
+//     flex: none;
+//     width: 80%;
+//   }
+//   .column.is-offset-three-quarters-touch {
+//     margin-left: 75%;
+//   }
+//   .column.is-offset-two-thirds-touch {
+//     margin-left: 66.6666%;
+//   }
+//   .column.is-offset-half-touch {
+//     margin-left: 50%;
+//   }
+//   .column.is-offset-one-third-touch {
+//     margin-left: 33.3333%;
+//   }
+//   .column.is-offset-one-quarter-touch {
+//     margin-left: 25%;
+//   }
+//   .column.is-offset-one-fifth-touch {
+//     margin-left: 20%;
+//   }
+//   .column.is-offset-two-fifths-touch {
+//     margin-left: 40%;
+//   }
+//   .column.is-offset-three-fifths-touch {
+//     margin-left: 60%;
+//   }
+//   .column.is-offset-four-fifths-touch {
+//     margin-left: 80%;
+//   }
+//   .column.is-1-touch {
+//     flex: none;
+//     width: 8.33333%;
+//   }
+//   .column.is-offset-1-touch {
+//     margin-left: 8.33333%;
+//   }
+//   .column.is-2-touch {
+//     flex: none;
+//     width: 16.66667%;
+//   }
+//   .column.is-offset-2-touch {
+//     margin-left: 16.66667%;
+//   }
+//   .column.is-3-touch {
+//     flex: none;
+//     width: 25%;
+//   }
+//   .column.is-offset-3-touch {
+//     margin-left: 25%;
+//   }
+//   .column.is-4-touch {
+//     flex: none;
+//     width: 33.33333%;
+//   }
+//   .column.is-offset-4-touch {
+//     margin-left: 33.33333%;
+//   }
+//   .column.is-5-touch {
+//     flex: none;
+//     width: 41.66667%;
+//   }
+//   .column.is-offset-5-touch {
+//     margin-left: 41.66667%;
+//   }
+//   .column.is-6-touch {
+//     flex: none;
+//     width: 50%;
+//   }
+//   .column.is-offset-6-touch {
+//     margin-left: 50%;
+//   }
+//   .column.is-7-touch {
+//     flex: none;
+//     width: 58.33333%;
+//   }
+//   .column.is-offset-7-touch {
+//     margin-left: 58.33333%;
+//   }
+//   .column.is-8-touch {
+//     flex: none;
+//     width: 66.66667%;
+//   }
+//   .column.is-offset-8-touch {
+//     margin-left: 66.66667%;
+//   }
+//   .column.is-9-touch {
+//     flex: none;
+//     width: 75%;
+//   }
+//   .column.is-offset-9-touch {
+//     margin-left: 75%;
+//   }
+//   .column.is-10-touch {
+//     flex: none;
+//     width: 83.33333%;
+//   }
+//   .column.is-offset-10-touch {
+//     margin-left: 83.33333%;
+//   }
+//   .column.is-11-touch {
+//     flex: none;
+//     width: 91.66667%;
+//   }
+//   .column.is-offset-11-touch {
+//     margin-left: 91.66667%;
+//   }
+//   .column.is-12-touch {
+//     flex: none;
+//     width: 100%;
+//   }
+//   .column.is-offset-12-touch {
+//     margin-left: 100%;
+//   }
+// }
+@media screen and (min-width: 896px) {
   .column.is-narrow-desktop {
     flex: none;
   }

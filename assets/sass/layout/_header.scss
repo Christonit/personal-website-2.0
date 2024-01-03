@@ -39,9 +39,8 @@
     rgba(0, 0, 0, 1) 0%,
     rgba(0, 0, 0, 0) 100%
   );
-  padding: 1.5rem 20px;
-  @include breakpoint(sm) {
-    width: 100%;
+  padding: 1rem 20px;
+  @include breakpoint(md) {
     background-color: rgba(0, 0, 0, 0);
     padding: 0.5rem 2rem;
   }
@@ -55,7 +54,7 @@
     margin: 0;
     height: 100vh;
     background-color: black;
-    transform: translateY(800px);
+    transform: translateY(100vh);
     transition: all ease-in-out 300ms;
     opacity: 0.3;
     width: 100vw;
@@ -72,7 +71,7 @@
       opacity: 1;
     }
 
-    @include breakpoint(sm) {
+    @include breakpoint(md) {
       opacity: 1;
       transform: translateY(0);
       padding: 1.5rem 2rem;
@@ -137,8 +136,10 @@
     background: none;
     display: inline-block;
     line-height: 10px;
-    margin-right: 32px;
 
+    @include breakpoint(lg) {
+      margin-left: 32px;
+    }
     &:hover {
       color: $white;
       @include gradient;
@@ -183,5 +184,30 @@
         }
       }
     }
+  }
+}
+
+.navbar,
+.navbar-menu,
+.navbar-start,
+.navbar-end {
+  @include breakpoint(md) {
+    align-items: center;
+    display: flex;
+  }
+}
+
+.navbar-menu,
+.navbar-end {
+  margin-right: 0;
+}
+
+.navbar-end {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  @include breakpoint(md) {
+    flex-direction: row;
+    gap: 0;
   }
 }

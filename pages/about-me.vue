@@ -6,7 +6,7 @@
           class="column is-2-desktop has-text-right-desktop has-right-padding title-container"
         >
           <h2 class="title about-title is-1">
-            <span class="has-stroke md:block">WHO</span> I AM
+            <span class="has-stroke sm:block">WHO</span> I AM
           </h2>
         </div>
         <div class="column is-8-tablet is-6-desktop">
@@ -54,7 +54,7 @@
             data-wow-duration="600ms"
             data-wow-offset="2"
           >
-            <span class="has-stroke md:block">MY</span> STACK
+            <span class="has-stroke sm:block">MY</span> STACK
           </h2>
         </div>
         <div class="column is-8-tablet is-6-widescreen">

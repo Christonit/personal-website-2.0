@@ -100,7 +100,7 @@ span {
     text-align: center;
     min-width: 32px;
 
-    @include breakpoint(sm) {
+    @include breakpoint(md) {
       min-width: inherit;
       display: block;
       line-height: 1.5;
@@ -110,7 +110,7 @@ span {
 
     &:first-child {
       padding: 0 12px 0 0;
-      @include breakpoint(sm) {
+      @include breakpoint(md) {
         padding: inherit;
       }
     }

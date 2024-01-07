@@ -158,10 +158,7 @@
     }
 
     @include breakpoint(xxxl) {
-      max-width: calc(600px + 1vw);
-    }
-    @include breakpoint(5xl) {
-      max-width: calc(600px + 6vw);
+      max-width: 660px;
     }
 
     h3 {
@@ -267,7 +264,6 @@
   }
 
   &-el-img {
-    max-width: 420px;
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -279,15 +275,15 @@
       height: 332px;
     }
     @include breakpoint(xxxl) {
-      max-width: calc(600px + 4vw);
-      height: calc(392px + 3vh);
+      min-width: 620px;
+      height: 500px;
     }
-    @include breakpoint(4xl) {
-      height: calc(392px + 4vh);
-    }
-    @include breakpoint(5xl) {
-      height: calc(392px + 6vh);
-    }
+    // @include breakpoint(4xl) {
+    //   height: calc(392px + 4vh);
+    // }
+    // @include breakpoint(5xl) {
+    //   height: calc(392px + 6vh);
+    // }
 
     img {
       pointer-events: none;

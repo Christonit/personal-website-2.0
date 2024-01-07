@@ -2,8 +2,11 @@
 @import "footer";
 
 * {
-  cursor: none !important;
+  @include breakpoint(lg) {
+    cursor: none !important;
+  }
 }
+
 body {
   background: $black;
   min-height: 100vh;
@@ -350,11 +353,15 @@ ul.experience-timeline {
 }
 
 .mx-auto {
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ml-auto {
+  margin-left: auto;
 }
 
 .column.is-8-tablet.is-6-desktop {
-  width: 66.66667%;
+  width: 100%;
   @include breakpoint(lg) {
     flex: none;
     width: 50%;

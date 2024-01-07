@@ -12,9 +12,12 @@
     <i class="material-icons"> arrow_upward </i>
   </button>
 
-  <canvas id="cursor" ref="cursorPointer"></canvas>
-  <canvas id="cursor--shadow" ref="cursorShadow"></canvas>
-  <span id="cursor--halo" ref="cursorHaloEl"></span>
+  <template v-if="breakpoints.isGreater('desktop')">
+    <canvas id="cursor" ref="cursorPointer"></canvas>
+    <canvas id="cursor--shadow" ref="cursorShadow"></canvas>
+    <span id="cursor--halo" ref="cursorHaloEl"></span>
+  </template>
+
   <NuxtFooter />
 </template>
 
@@ -29,6 +32,7 @@ const showScrollToTop = ref(false);
 const breakpoints = reactive(
   useBreakpoints({
     small: 768,
+    desktop: 1200,
   })
 );
 
@@ -116,7 +120,7 @@ const scrollHandler = (bar) => {
   bar.animate(scrollCount);
 };
 
-const debouncedScrollHandler = debounce(scrollHandler, 250);
+const debouncedScrollHandler = debounce(scrollHandler, 50);
 
 const cursorAnimations = () => {
   let cursorAnimation = anime.timeline();
@@ -145,7 +149,7 @@ const cursorAnimations = () => {
 };
 
 onMounted(() => {
-  if (process.client) {
+  if (process.client && breakpoints.isGreater("desktop")) {
     cursorPointer.value.style.top = mouseY + "px";
     document
       .querySelectorAll(
@@ -255,26 +259,30 @@ useEventListener(document, "mousemove", (e) => {
 });
 
 useEventListener("click", (e) => {
-  cursorHaloEl.value.style.left = mouseX.value - 24 + "px";
-  cursorHaloEl.value.style.top = mouseY.value - 24 + "px";
-  cursorHaloEl.value.style.width = "56px";
-  cursorHaloEl.value.style.height = "56px";
+  if (breakpoints.isGreater("desktop")) {
+    cursorHaloEl.value.style.left = mouseX.value - 24 + "px";
+    cursorHaloEl.value.style.top = mouseY.value - 24 + "px";
+    cursorHaloEl.value.style.width = "56px";
+    cursorHaloEl.value.style.height = "56px";
 
-  cursorAnimations();
+    cursorAnimations();
+  }
 });
 
 useEventListener("scroll", () => {
-  clearTimeout(isScrolling.value);
+  if (breakpoints.isGreater("desktop")) {
+    clearTimeout(isScrolling.value);
 
-  // Disable mousemove during scrolling
-  cursorPointer.value.style.display = "none";
-  cursorShadow.value.style.display = "none";
+    // Disable mousemove during scrolling
+    cursorPointer.value.style.display = "none";
+    cursorShadow.value.style.display = "none";
 
-  // Set a timeout to re-enable mousemove after scrolling stops
-  isScrolling.value = setTimeout(() => {
-    cursorPointer.value.style.display = "block";
-    cursorShadow.value.style.display = "block";
-  }, 500); // Adjust the timeout duration as needed
+    // Set a timeout to re-enable mousemove after scrolling stops
+    isScrolling.value = setTimeout(() => {
+      cursorPointer.value.style.display = "block";
+      cursorShadow.value.style.display = "block";
+    }, 500); // Adjust the timeout duration as needed
+  }
 });
 
 useHead({

@@ -60,6 +60,7 @@ export const SPECIFIC_QUERY = `title
             name
           }
         }
+        title
         portfolioScreenshotsCollection {
           items {
             url
@@ -68,6 +69,7 @@ export const SPECIFIC_QUERY = `title
         }
       }
       ... on TwoColumnImages {
+        title
         twoColumnImagesCollection {
           items {
             url

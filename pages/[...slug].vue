@@ -79,7 +79,7 @@ definePageMeta({
     <section v-if="data" id="project-case-study" class="section is-large">
       <section class="container is-fullhd">
         <div class="columns is-centered is-multiline">
-          <div class="column is-half-desktop">
+          <div class="column is-half-desktop mx-auto">
             <figure class="image">
               <img
                 :src="
@@ -92,7 +92,7 @@ definePageMeta({
               />
             </figure>
           </div>
-          <div class="column is-7-desktop has-text-centered">
+          <div class="column has-text-centered mx-auto">
             <h1>{{ data.title }}</h1>
             <h4 class="is-4">
               {{ data.description }}
@@ -132,23 +132,58 @@ definePageMeta({
             v-if="data.blockCollection && data.blockCollection.items"
             v-for="(item, i) in data.blockCollection.items"
           >
-            <div
-              :key="i"
+            <template
+              v-if="
+                item.twoColumnImagesCollection &&
+                item.twoColumnImagesCollection.items.length > 0
+              "
+            >
+              <h3 class="is-3" v-if="item.title">{{ item.title }}</h3>
+
+              <div class="columns is-multiline">
+                <div
+                  class="column is-half-desktop"
+                  :key="i"
+                  v-for="(image, j) in item.twoColumnImagesCollection.items"
+                >
+                  <figure class="image" :key="j">
+                    <img
+                      :src="image.url"
+                      :alt="image.title"
+                      style="cursor: zoom-in"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </template>
+
+            <template
               v-if="
                 item.portfolioScreenshotsCollection &&
                 item.portfolioScreenshotsCollection.items.length > 0
               "
-              class="column is-8-desktop is-offset-2-desktop"
-              v-for="(image, j) in item.portfolioScreenshotsCollection.items"
             >
-              <figure class="image" :key="j">
-                <img
-                  :src="image.url"
-                  :alt="image.title"
-                  style="cursor: zoom-in"
-                />
-              </figure>
-            </div>
+              <div
+                class="column is-8-desktop is-offset-2-desktop"
+                v-if="item.title"
+              >
+                <h3 class="is-3">{{ item.title }}</h3>
+              </div>
+              <div
+                :key="i"
+                class="column is-8-desktop is-offset-2-desktop"
+                v-for="(image, j) in item.portfolioScreenshotsCollection.items"
+              >
+                <figure class="image" :key="j">
+                  <img
+                    :src="image.url"
+                    :alt="image.title"
+                    style="cursor: zoom-in"
+                  />
+                </figure>
+              </div>
+            </template>
+
             <div
               :key="i"
               v-if="item.paragraphs"
@@ -163,23 +198,6 @@ definePageMeta({
                     item.contentfulMetadata.tags[0].name === 'two-column',
                 }"
               ></div>
-            </div>
-            <div
-              class="column is-half-desktop"
-              v-if="
-                item.twoColumnImagesCollection &&
-                item.twoColumnImagesCollection.items.length > 0
-              "
-              :key="i"
-              v-for="(image, j) in item.twoColumnImagesCollection.items"
-            >
-              <figure class="image" :key="j">
-                <img
-                  :src="image.url"
-                  :alt="image.title"
-                  style="cursor: zoom-in"
-                />
-              </figure>
             </div>
           </template>
         </div>

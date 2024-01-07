@@ -4,17 +4,15 @@
       <div class="columns">
         <div class="column is-3-desktop">
           <small> NEED HELP? </small>
-          <NuxtLink href="mailto:me@chsantana.com">me@chsantana.com</NuxtLink>
+          <NuxtLink href="mailto:christopher.sant@outlook.com"
+            >christopher.sant@outlook.com</NuxtLink
+          >
         </div>
-        <div class="column is-3-desktop">
-          <small> WANT TO CHAT? </small>
 
-          <NuxtLink href="tel:1-829-781-3995">+1 829 781 3995</NuxtLink>
-        </div>
-        <div class="column is-6-desktop">
+        <div class="column is-6-desktop ml-auto">
           <div class="navbar-end">
             <span class="dev-signature"
-              >Made with
+              >2018-2024 | Remade with
               <NuxtLink to="https://nuxt.com/" target="_blank">
                 <img src="/img/icon-green.svg" class="nuxt-logo"
               /></NuxtLink>

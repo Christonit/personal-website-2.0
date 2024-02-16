@@ -13,7 +13,7 @@
             <ul class="experience-timeline">
               <li class="experience-box">
                 <div class="flex items-center gap-20 mb-24">
-                  <NuxtLink href="https://stockstotrade.com/" target="_blank">
+                  <NuxtLink href="#" target="_blank">
                     <img
                       src="/img/stt-icon.svg"
                       alt="stt-icon-outline"

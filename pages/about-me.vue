@@ -20,15 +20,10 @@
 
             <p>
               Currently, working as a Senior Front End Developer consultant for
-              <u>
-                <NuxtLink href="https://stockstotrade.com/" target="_blank"
-                  >StocksToTrade</NuxtLink
-                ></u
-              >
-              & their partners where I collaborate on migrating WordPress to
-              Vue.js/Nuxt SSG and SSR using Headless WordPress with GraphQL and
-              REST APIs, User Interface redesigns and improving our Core Web
-              Vitals.
+              a company making stocks trading tools & their partners where I
+              collaborate on migrating WordPress to Vue.js/Nuxt SSG and SSR
+              using Headless WordPress with GraphQL and REST APIs, User
+              Interface redesigns and improving our Core Web Vitals.
             </p>
             <p>
               In my free time usually, you will find me rock climbing, weight

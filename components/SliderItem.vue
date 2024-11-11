@@ -63,8 +63,6 @@ defineProps(["slug", "thumbnail", "title", "previewDescription"]);
 
 const addClass = () => {
   if (!isClassAdded.value && breakpoints.isGreater("laptop")) {
-    console.log("IN");
-
     el.value.classList.add("active");
     isClassAdded.value = true;
     el.value.removeEventListener("mouseenter", addClass);
@@ -73,8 +71,6 @@ const addClass = () => {
 
 const removeClass = () => {
   if (isClassAdded.value && breakpoints.isGreater("laptop")) {
-    console.log("OUT");
-
     el.value.classList.remove("active");
     isClassAdded.value = false;
     el.value.removeEventListener("mouseleave", removeClass);

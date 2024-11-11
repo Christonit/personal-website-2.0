@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   css: ["~/assets/sass/app.scss"],
   ssr: false,
   modules: ["@vueuse/nuxt"],
+
   runtimeConfig: {
     public: {
       contentful_space_id: process.env.SPACE_ID,
@@ -12,6 +13,7 @@ export default defineNuxtConfig({
     },
     indexable: process.env.ENVIRONMENT === "production",
   },
+
   app: {
     pageTransition: { name: "page", mode: "in-out" },
     head: {
@@ -50,4 +52,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  compatibilityDate: "2024-11-11",
 });

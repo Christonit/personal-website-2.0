@@ -26,6 +26,8 @@
         style="cursor: zoom-in"
         class="portfolio-el-img"
         draggable="true"
+        height="332"
+        width="398"
       />
 
       <div class="portfolio-el-details has-text-centered">

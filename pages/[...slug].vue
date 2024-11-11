@@ -89,6 +89,8 @@ definePageMeta({
                 "
                 :alt="`${data.thumbnail.title} image`"
                 style="cursor: zoom-in"
+                width="632"
+                height="442"
               />
             </figure>
           </div>

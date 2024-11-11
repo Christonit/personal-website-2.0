@@ -1,6 +1,7 @@
 {
   "name": "nuxt-app",
   "private": true,
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "build": "node ./utils/fetchCmsContent.js &&  nuxt build",

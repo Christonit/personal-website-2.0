@@ -1,14 +1,13 @@
 <template>
   <section class="hero is-primary container is-fluid">
-    <div class="columns is-multiline">
-      <div class="column hero-body is-12 is-middle-aligned">
-        <h1 class="title is-1 is-spaced">Christopher Santana</h1>
-        <h1 class="title is-1 is-spaced highlight">Front-end Developer</h1>
+    <div class="hero-body has-text-centered is-middle-aligned">
+      <div class="container">
+        <h1 class="title is-1 is-spaced">
+          Christopher Santana <br />
+          <span class="highlight">Front-end Developer</span>
+        </h1>
         <h1 class="is-1 neon">AT YOUR SERVICE.</h1>
-      </div>
-      <div class="column is-5-desktop"></div>
 
-      <div class="column is-12 mx-auto">
         <div class="scroll-more-container">
           <span class="text">Scroll down</span>
 

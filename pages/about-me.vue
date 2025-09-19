@@ -12,10 +12,9 @@
         <div class="column is-8-tablet is-6-desktop">
           <div class="content has-right-padding">
             <h5>
-              I am a web developer and designer with over 9 years of experience
-              in front-end development and UI design spread across different
-              industries such as advertisement, finance, stocks trading, crypto
-              & comunications.
+              I am a web developer with over 9 years of experience in front-end
+              development and UI design spread across different industries such
+              as advertisement, finance, stocks trading, crypto & comunications.
             </h5>
 
             <p>

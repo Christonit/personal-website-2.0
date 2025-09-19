@@ -3,9 +3,7 @@
     <div class="columns is-multiline">
       <div class="column hero-body is-12 is-middle-aligned">
         <h1 class="title is-1 is-spaced">Christopher Santana</h1>
-        <h1 class="title is-1 is-spaced highlight">
-          Front-end Developer &amp; UI designer
-        </h1>
+        <h1 class="title is-1 is-spaced highlight">Front-end Developer</h1>
         <h1 class="is-1 neon">AT YOUR SERVICE.</h1>
       </div>
       <div class="column is-5-desktop"></div>
